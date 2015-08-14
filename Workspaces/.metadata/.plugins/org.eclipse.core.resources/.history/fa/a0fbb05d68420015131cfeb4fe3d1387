@@ -1,0 +1,13 @@
+import gpdraw.*;
+
+public class Benzene {
+	private DrawingTool marker;
+	private SketchPad poster;
+	
+	public Benzene(){
+		
+	}
+	public void draw(){
+		
+	}
+}

@@ -1,0 +1,10 @@
+import gpdraw.*;
+
+public class Benzene {
+	public Benzene(){
+		
+	}
+	public void draw(){
+		
+	}
+}
