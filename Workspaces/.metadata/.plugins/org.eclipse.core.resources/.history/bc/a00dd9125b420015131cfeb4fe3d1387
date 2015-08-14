@@ -1,0 +1,10 @@
+import gpdraw.*;
+
+public class DrawHouse {
+	DrawingTool marker;
+	SketchPad poster;
+	
+	public void draw(){
+		
+	}
+}

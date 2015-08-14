@@ -1,0 +1,30 @@
+import gpdraw.*;
+
+public class DrawHouse {
+	private DrawingTool marker;
+	private SketchPad poster;
+	private boolean _windows;
+	private boolean _door;
+
+	public DrawHouse(int winx, int winy, boolean windows, boolean door){
+		poster = new SketchPad(winx, winy);
+		marker = new DrawingTool(poster);
+		_windows = windows;
+		_door = door;
+	}
+	
+	
+	public void draw(){
+		marker.up();
+		marker.turnRight(90);
+		marker.forward(100);
+		marker.down();
+		marker.drawString(" A");
+		marker.move(-100,0);
+		marker.up();
+		marker.move(-175,100);
+		marker.down();
+		marker.move(175,100);
+		marker.drawString(" B");
+	}
+}
