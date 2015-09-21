@@ -4,6 +4,8 @@ public class Taxes{
     private final double FEDERAL_TAX = 15.00;
     private int hoursWorked;
     private double hourlyRate;
+    private double grossPay;
+    private double netPay;
 
     public static void main(String args[]){
         Taxes ammu = new Taxes(5, 15.5);
@@ -17,10 +19,12 @@ public class Taxes{
     public void getInfo(){
         System.out.printf("%25s%8.2f%n","Hours Worked:", hoursWorked);
         System.out.printf("%25s%8.2f%n","Hourly rate:", hourlyRate);
-        System.out.printf("%25s%8.2f%n","Gross pay:", hoursWorked*hourlyRate);
-        System.out.printf("%25s%8.2f%n","Federal tax (15.00%):", );
-        System.out.printf("%25s%8.2f%n","FICA (7.65%):", );
-        System.out.printf("%25s%8.2f%n","State tax (4.00%):", );
-        System.out.printf("%25s%8.2f%n","Net pay:", );
+        grossPay = hourlyRate*hoursWorked;
+        System.out.printf("%25s%8.2f%n","Gross pay:", grossPay);
+        System.out.printf("%25s%8.2f%n","Federal tax (15.00%):", FEDERAL_TAX/100*grossPay);
+        System.out.printf("%25s%8.2f%n","FICA (7.65%):", FICA/100*grossPay);
+        System.out.printf("%25s%8.2f%n","State tax (4.00%):", STATE_TAX/100*grossPay);
+        netPay = grossPay - (grossPay/100(FEDERAL_TAX+STATE_TAX+FICA);
+        System.out.printf("%25s%8.2f%n","Net pay:", netPay);
     }
 }
