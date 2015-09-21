@@ -17,14 +17,17 @@ public class Taxes{
     }
     
     public void getInfo(){
-        System.out.printf("%25s%8.2f%n","Hours Worked:", hoursWorked);
-        System.out.printf("%25s%8.2f%n","Hourly rate:", hourlyRate);
+        System.out.printf("%s $%d%n","Hours Worked:", hoursWorked);
+        System.out.printf("%s $%.2f%n","Hourly rate:", hourlyRate);
+        System.out.println();
         grossPay = hourlyRate*hoursWorked;
-        System.out.printf("%25s%8.2f%n","Gross pay:", grossPay);
-        System.out.printf("%25s%8.2f%n","Federal tax (15.00%):", FEDERAL_TAX/100*grossPay);
-        System.out.printf("%25s%8.2f%n","FICA (7.65%):", FICA/100*grossPay);
-        System.out.printf("%25s%8.2f%n","State tax (4.00%):", STATE_TAX/100*grossPay);
-        netPay = grossPay - (grossPay/100(FEDERAL_TAX+STATE_TAX+FICA);
-        System.out.printf("%25s%8.2f%n","Net pay:", netPay);
+        System.out.printf("%s $%.2f%n","Gross pay:", grossPay);
+        System.out.println();
+        System.out.printf("%s $%.2f%n","Federal tax (15.00%):", FEDERAL_TAX/100*grossPay);
+        System.out.printf("%s $%.2f%n","FICA (7.65%):", FICA/100*grossPay);
+        System.out.printf("%s $%.2f%n","State tax (4.00%):", STATE_TAX/100*grossPay);
+        netPay = grossPay - (grossPay/100)*(FEDERAL_TAX + STATE_TAX + FICA);
+        System.out.println();
+        System.out.printf("%s $%.2f%n","Net pay:", netPay);
     }
 }
