@@ -30,29 +30,21 @@ rl.question("Shall we begin the scraping? (y/n)", function(answer) {
 });
 
 function scraoeSequence(){
-    url = 'http://iws.punahou.edu/user/DKiang/apcs/'
+    var url = 'http://iws.punahou.edu/user/DKiang/apcs/'
     request(url, function(error, response, body){
         if (!error && response.statusCode == 200) {
             console.log("We made it to the website! Starting to pull data...");
-            for(lesson = 1; lesson < 2; lesson++){
+            for(lesson = 1; lesson < 5; lesson++){
                 url = 'http://iws.punahou.edu/user/DKiang/apcs/LessonA' + lesson + '/A' + lesson + '-intro.html';
                 request(url, function(error, response, html){
                     if (!error && response.statusCode == 200) {
-                        console.log("Navigated to: " + url);
+                        console.log("Navigated to: " + 'http://iws.punahou.edu/user/DKiang/apcs/LessonA' + lesson + '/A' + lesson + '-intro.html');
                         var $ = cheerio.load(html);
                         var mainTable;
-                        $('table').each(function(i, elem) {
-                            if($(this).attr('bgcolor') === 'ffffff'){
-                                mainTable = $(this);
-                                mainTable.children().first().children().each(function(i, elem){
-                                    var bodyTable;
-                                    if($(this).attr('bgcolor') === 'ffffff' && $(this).attr('align') === 'left'){
-                                        var bodyTable = $(this);
-                                    }
-                                    console.log(bodyTable.length);
-                                });
-                            }
-                        });
+                        $ = cheerio.load($('table[bgcolor = "ffffff"]').html());
+                        $ = cheerio.load($('tr').html());
+                        console.log($('td[align = "left"]').html());
+                        
                     }
                     else if (!error && response.statusCode == 404) {
                         console.log("No intro page in chapter");

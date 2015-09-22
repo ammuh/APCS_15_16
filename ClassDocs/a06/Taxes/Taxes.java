@@ -1,3 +1,9 @@
+/***
+ *  @author Ammar Husain
+ * Period 4
+ */
+ import java.util.Scanner;
+ 
 public class Taxes{
     private final double FICA = 7.65;
     private final double STATE_TAX = 4.00;
@@ -5,29 +11,71 @@ public class Taxes{
     private int hoursWorked;
     private double hourlyRate;
     private double grossPay;
+    private double socTax;
+    private double stateTax;
+    private double fedTax;
+    private double totalTax;
     private double netPay;
 
     public static void main(String args[]){
-        Taxes ammu = new Taxes(5, 15.5);
-        ammu.getInfo();
+        Scanner s = new Scanner(System.in);
+        System.out.print("How many hours have you worked? ");
+        int hrs = s.nextInt();
+        System.out.print("What is your hourly rate? ");
+        double rte = s.nextDouble();
+        Taxes profile = new Taxes(hrs, rte);
+        System.out.printf("Hours worked: $%d%n", profile.getHoursWorked());
+        System.out.printf("Hourly rate: $%.2f%n",profile.getHourlyRate());
+        System.out.println();
+        System.out.printf("Gross pay: $%.2f%n", profile.computeGrossPay());
+        System.out.println();
+        System.out.printf("Federal tax (%.2f%%): $%.2f%n", profile.getFedTaxRate(),  profile.computeFedTax());
+        System.out.printf("FICA (%.2f%%): $%.2f%n", profile.getSocSecurityRate(),profile.computeSocSecurity());
+        System.out.printf("State tax (%.2f%%): $%.2f%n", profile.getStateTaxRate(),  profile.computeStateTax());
+        System.out.println();
+        System.out.printf("Net pay: $%.2f%n", profile.computeNetPay());
     }
     public Taxes(int hours, double rate){
         hoursWorked = hours;
         hourlyRate = rate;
     }
-    
-    public void getInfo(){
-        System.out.printf("%s $%d%n","Hours Worked:", hoursWorked);
-        System.out.printf("%s $%.2f%n","Hourly rate:", hourlyRate);
-        System.out.println();
+    public int getHoursWorked(){
+        return hoursWorked;
+    }
+    public double getHourlyRate(){
+        return hourlyRate;
+    }
+    public double getFedTaxRate(){
+        return FEDERAL_TAX;
+    }
+    public double getSocSecurityRate(){
+        return FICA;
+    }
+    public double getStateTaxRate(){
+        return STATE_TAX;
+    }
+     public double computeGrossPay(){
         grossPay = hourlyRate*hoursWorked;
-        System.out.printf("%s $%.2f%n","Gross pay:", grossPay);
-        System.out.println();
-        System.out.printf("%s $%.2f%n","Federal tax (15.00%):", FEDERAL_TAX/100*grossPay);
-        System.out.printf("%s $%.2f%n","FICA (7.65%):", FICA/100*grossPay);
-        System.out.printf("%s $%.2f%n","State tax (4.00%):", STATE_TAX/100*grossPay);
-        netPay = grossPay - (grossPay/100)*(FEDERAL_TAX + STATE_TAX + FICA);
-        System.out.println();
-        System.out.printf("%s $%.2f%n","Net pay:", netPay);
+        return grossPay;
+    }
+     public double computeFedTax(){
+        fedTax= grossPay*FEDERAL_TAX;
+        return fedTax;
+    }
+    public double computeSocSecurity(){
+        socTax = FICA*grossPay;
+        return socTax;
+    }
+    public double computeStateTax(){
+        stateTax = STATE_TAX*grossPay;
+        return stateTax;
+    }
+    public double computeTotalTax(){
+        totalTax = stateTax + socTax + fedTax;
+        return totalTax;
+    }
+    public double computeNetPay(){
+        netPay = grossPay - totalTax;
+        return netPay;
     }
 }
