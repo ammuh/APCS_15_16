@@ -34,7 +34,7 @@ function scraoeSequence(){
     request(url, function(error, response, body){
         if (!error && response.statusCode == 200) {
             console.log("We made it to the website! Starting to pull data...");
-            for(lesson = 1; lesson < 5; lesson++){
+            for(lesson = 1; lesson < 2; lesson++){
                 url = 'http://iws.punahou.edu/user/DKiang/apcs/LessonA' + lesson + '/A' + lesson + '-intro.html';
                 request(url, function(error, response, html){
                     if (!error && response.statusCode == 200) {
