@@ -1,12 +1,13 @@
 /**
  * Created by Ammar Husain on 9/20/2015.
  */
+var Promise = require('bluebird');
 var fs = require('fs');
-var request = require('request');
+var request = require("request-promise")
 var cheerio = require('cheerio');
 var readline = require('readline');
-var Promise = require('bluebird');
-Promise.promisifyAll([fs, request, cheerio, readline]);
+
+Promise.promisifyAll([fs, cheerio, readline]);
 
 var rl = readline.createInterface({
     input: process.stdin,
@@ -15,11 +16,11 @@ var rl = readline.createInterface({
 
 console.log("Welcome to Ammar's Saucy Java Textbook Web Scrapper, press enter to continue");
 
-rl.question("Shall we begin the scraping? (y/n)", function(answer) {
+rl.question("Shall we begin the scraping? (y/n) ", function(answer) {
     if(answer === 'y'){
         rl.close();
         console.log("Starting scrape sequence...");
-        scraoeSequence();
+        scrapeSequence();
     }
     else if(answer === 'n'){
         console.log("Maybe some other day");
@@ -31,10 +32,9 @@ rl.question("Shall we begin the scraping? (y/n)", function(answer) {
     }
 });
 
-function scraoeSequence(){
-    var url = 'http://iws.punahou.edu/user/DKiang/apcs/'
-    request(url, function(error, response, body){
-        if (!error && response.statusCode == 200) {
+function scrapeSequence(){
+    request('http://iws.punahou.edu/user/DKiang/apcs/').then(function(error,response, body){
+        if (!error) {
             console.log("We made it to the website! Starting to pull data...");
             for(lesson = 1; lesson < 2; lesson++){
                 url = 'http://iws.punahou.edu/user/DKiang/apcs/LessonA' + lesson + '/A' + lesson + '-intro.html';
@@ -61,4 +61,5 @@ function scraoeSequence(){
             console.log('Some error');
         }
     });
+
 }
