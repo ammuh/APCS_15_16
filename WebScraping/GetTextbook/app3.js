@@ -6,6 +6,10 @@ var readline = require('readline');
 var colors = require('colors')
 var fs = require("fs");
 var replace = require("replace");
+var pdf = require('pdfcrowd');
+
+// create an API client instance
+var client = new pdf.Pdfcrowd("ammo700", "f41070362937f05f79b671094cd9ab5b");
 
 Promise.promisifyAll([fs, cheerio, readline]);
 
@@ -238,3 +242,26 @@ function cDir(dirPath) {
             cDir(filePath);
         }
     }
+function pdfPrompt(){
+    var rl2 = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+    });
+    rl2.question("Would you like to convert the text file to a pdf? (y/n) ", function(answer) {
+    if(answer === 'y'){
+        console.log();
+        console.log("Converting to pdf... Once you see file, program will be finished");
+        // convert a local HTML file:
+        client.convertFile('rendered/textbook.txt', pdf.saveToFile("Textbook.pdf"), {
+            width: "11in",
+            height: "8.5in",
+            vmargin: ".4in",
+            footer_html: '<div style=text-align:center;font-size:smaller;color:maroon;"> Created by Ammu </div>'
+        });
+    }
+    else if(answer === 'n'){
+        console.log('Thank you');
+        process.exit();
+    }
+});
+}
