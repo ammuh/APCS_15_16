@@ -8286,7 +8286,463 @@ catch-block<br>
   </table>
   <br>
   <p class="text">It is strongly recommended that computer programmers know how computers function. An understanding of how they work can help to demystify some of the computing processes that are going on behind the scenes as well as to help clarify some of the quirky things that computers do. Understanding the history of computers and their development over time can give us insight as to where they may be heading in the future and help computer programmers to plan for the inevitable changes. The Internet holds a vast amount of information on many subjects related to computers, and should be explored for the depth of content located there.</p>
-  <br><br><br><br><br><br><br><br><br><h2>Chapter 25</h2><br>  
+  <br><br><br><h2>Chapter 23</h2><br>  
+  <br>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header">AB23 Introduction</span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 1 of 9</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <p class="text">Two-dimensional arrays allow the programmer to solve problems involving rows and columns. Many data processing problems involve rows and columns, such as an airplane seat reservation system or the mathematical modeling of bacterial growth. A classic problem involving two-dimensional arrays is the bacteria simulation program presented in Lab Assignment AB23.1, <em>Life</em>. After surveying the syntax and unique aspects of larger data structures, we will apply them to more challenging lab assignments.</p>
+  <p class="text">The key topics for this lesson are:</p>
+  <ol type="A" class="text">
+    <li class="text"><a href="AB23-A.html">Two-Dimensional Arrays</a></li>
+    <li class="text"><a href="AB23-B.html">Passing Two-Dimensional Arrays to Methods</a></li>
+  <li class="text"><a href="AB23-C.html">Two-Dimensional Array Algorithms</a></li>
+  </ol><br>  
+  <br>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header"><a href="../vocabulary/index_AB.html">AB23 Vocabulary</a></span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 2 of 9</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <table width="500" border="0">
+    <tr class="text">
+      <td width="50%">MATRIX</td>
+      <td width="50%">ROW</td>
+    </tr>
+    <tr class="text">
+      <td>COLUMN</td>
+      <td>LENGTH</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr>
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+  </table>
+  <br>
+  <br>  
+  <br>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header">A. Two-Dimensional Arrays</span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 3 of 9</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <ol class="text">
+    <li><p>Often the data a program uses comes from a two-dimensional situation. For example, maps are two-dimensional (or more), the layout of a printed page is two-dimensional, a computer-generated image (such as on your computer&apos;s screen) is two-dimensional, and so on.</p>
+      <p>For these situations, a Java programmer can use a <em>two-dimensional array</em>. This allows for the creation of table-like data structures with a row and column format. The first subscript is a row index in a table while the second subscript is a column index in a table. Here is example code, in Sample Code 23-1, including a diagram of the array table.</p>
+    </li>
+  </ol>
+  <blockquote>
+    <p class="text"><u>Sample Code 23-1</u></p>
+    <p class="text"><code><strong>int</strong>[][] table = new int[3][4];<br>
+          <strong>int</strong> row, col;</code></p>
+    <p><span class="text"><code><strong>for</strong> (row = 0; row &lt; 3; row++){<br>
+  &#xA0;&#xA0;&#xA0;<strong>for</strong> (col = 0; col &lt; 4; col++){<br>
+        &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;table[row][col] = row + col;<br>
+        <code>&#xA0;&#xA0;&#xA0;</code>}<br>
+        }</code></span></p>
+    <p align="center"><img src="http://iws.punahou.edu/user/DKiang/apcs/LessonAB23/images/Fig_AB23_1.gif" width="201" height="195"></p>
+    </blockquote>  <ol start="2">
+    <li class="text">
+      <p>Two-dimensional arrays are objects. A variable such as <code>table</code> is a reference to a 2D array object. The declaration </p>
+    <p><code><strong>int</strong>[][] table;</code></p>
+      <p>defines a <code>table</code> that holds a reference to a 2D array of integers. Without any further initialization, table holds the value <strong><code>null</code></strong>.</p>
+    </li>
+  <li class="text">
+        <p>The declaration </p>
+        <p><code><strong>int</strong>[][]table = <strong>new int</strong>[3][4];</code></p>
+        <p>defines a <code>table</code> that holds a reference to a 2D array of integers, creates an array object of 3 rows and 4 columns, and puts the reference in <code>table</code>. All the elements of the array are initialized to zero.</p>
+  </li>
+    <li class="text">
+        <p>The declaration </p>
+        <p><code><strong>int</strong>[][] table = { {0,0,0,0},<br>
+          &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;{0,0,0,0},<br>
+          &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;{0,0,0,0} };</code></p>
+        <p>does exactly the same thing as the previous declaration (and would not ordinarily be used.)</p>
+    </li>
+    <li class="text">
+        <p>The declaration </p>
+        <p><code>int[][]table = { {0,1,2,3},<br>
+          &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;{1,2,3,4},<br>
+          &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;{2,3,4,5} };</code></p>
+        <p>creates an array of the same dimensions (same number of rows and columns) as the previous array and initializes the elements to the given values in each cell.</p>
+    </li>
+    <li class="text">
+        <p>If no initializer is provided for an array, then when the array is created, it is automatically filled with the appropriate values: zero for numbers, <strong><code>false</code></strong> for <strong><code>boolean</code></strong>, and <strong><code>null</code></strong> for objects.</p>
+    </li>
+    <li class="text">
+        <p>Just as with one-dimensional arrays, the row and column numbering of a 2-D array begins at subscript zero (0). The 3 rows of the table are numbered from 0...2. Likewise, the 4 columns of the table are numbered from 0...3.</p>
+    </li>
+    <li class="text">
+        <p>The array <code>table</code> is filled with the sums of <code>row</code> and <code>col</code>, which is accomplished by Sample Code 23-2 (see below). To access each location of the matrix, specify the row coordinate first, then the column:</p>
+        <p><code>table[row][col]</code></p>
+        <p>Each subscript must have its own square brackets.</p>
+    </li>
+    <li class="text">
+        <p>The length of a 2D array is the number of rows it has. The row index will run from 0 to length -1. The number of rows in <code>table</code> is given by the value <code>table.length</code>. </p>
+        <p>Each row of a 2D array has its own length. To get the number of columns in table, use any of the following: </p>
+        <p><code>table[0].length<br>
+            table[1].length <br>
+          table[2].length. </code></p>
+        <p>There is actually no rule that says that all the rows of an array must have the same length, and some advanced applications of arrays use varying-sized rows. But if you use the <strong><code>new</code></strong> operator to create an array in the manner described above, you&apos;ll always get an array with equal-sized rows.</p>
+    </li>
+    <li class="text">
+        <p>The routine that assigned values to the array used the specific numbers of rows and columns. That is fine for this particular program, but a better definition would work for an array of any two dimensions.</p>
+        <p><u>Sample Code 23-2</u></p>
+        <p><code><strong>int</strong>[][] table = new int[3][4];<br>
+            <strong>int</strong> row, col;</code></p>
+        <p><code><strong>for</strong> (row = 0; row &lt; table.length; row++){<br>
+  &#xA0;&#xA0;&#xA0;<strong>for</strong> (col = 0; col &lt; table[row].length; col++){<br>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;table[row][col] = row + col;<br>
+            &#xA0;&#xA0;&#xA0;}<br>
+          }</code></p>
+        <p>In Sample Code 23-2, the limits of the for loops have been redefined using <code>table.length</code> and <code>table[row].length</code> so that they work with any two-dimensional array of ints with any number of rows and columns .</p>
+    </li>
+    </ol>  <p>&#xA0;</p>
+  <br><br>  
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header">B. Passing Two-Dimensional Arrays to Methods</span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 4 of 9</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <ol class="text">
+    <li>The following program in Sample Code 23-3 illustrates parameter passing of an array. The purpose of this method is to print out the array.
+      <p> <u>Sample Code 23-3</u></p>
+      <p><code>// A program to illustrate 2D array parameter passing</code></p>
+      <p><code> <strong>public void</strong> printTable (<strong>int</strong>[][] pTable){<br>
+  &#xA0;&#xA0;<strong>for</strong> (<strong>int</strong> row = 0; row &lt; pTable.length; row++){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;<strong>for</strong> (<strong>int</strong> col = 0; col &lt; pTable[row].length; col++){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;System.out.printf(&#x201C;%4d&#x201D;, pTable[row][col]);<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;System.out.println();<br>
+  &#xA0;&#xA0;}<br>
+  }</code></p>
+    </li>
+<li>
+        <p>The <code>printTable</code> method uses a reference parameter, <code><strong>int</strong>[][] pTable</code>. The local identifier <code>pTable</code> serves as an alias for the actual parameter <code>grid</code> passed to the method.</p>
+</li>
+  <li>
+    <p>When a program is running and it tries to access an element of an array, the Java virtual machine checks that the array element actually exists. This is called <em>bounds checking</em>. If the program tries to access an array element that does not exist, the Java virtual machine will generate an <code>ArrayIndexOutOfBoundsException</code> exception. Ordinarily, this will halt the program.</p>
+  </li>
+  </ol>
+  <p>&#xA0;</p><br><br>
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="90%"><span class="header">C. Two-Dimensional Array Algorithms</span></td>
+    <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 5 of 9</nobr></font></td>
+  </tr>
+</table>
+  <br>
+<ol class="text">
+    <li>
+      <p>The most common 2-D array algorithms will involve processing the entire grid, usually row-by-row or column-by-column.</p>
+    </li>
+<li>        
+  <p>Problem-solving on a matrix could involve processing:</p>
+<ol type="a">
+    <li type="a">one row</li>
+  <li>one column</li>
+<li>one cell</li>
+<li>adjacent cells in different directions</li>
+</ol>
+</li>
+</ol>  <p>&#xA0;</p><br>  
+  <br>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header">Summary/Review</span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 6 of 9</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <p class="text">Two-dimensional arrays will be applied to two interesting problems. The simulation of life in a petri dish of bacteria will require a two-dimensional array representation. The second and third lab assignments are different versions of the &#x201C;Knight&#x2019;s Tour&#x201D; problem - an interesting and demanding chess movement problem.</p>
+  <br><br><br><h2>Chapter 24</h2><br>  
+  <br>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header">AB24 Introduction</span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 1 of 7</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <p class="text">Suppose that you are trapped inside a maze and you need to find your way out. Initial attempts at exiting are random and because the walls all appear identical, you begin wasting time and energy trying the same routes over and over again. After some thought and after recalling a useful computer science algorithm, you take advantage of a tool you have in your pocket - a marking pen. You begin marking the walls with some notes and a time stamp. (This technique recalls the one used by Hansel and Gretel in the Grimm fairy tale, when Hansel marked his path through the woods with shiny stones (and then breadcrumbs), so that he could safely find his way back.) At each branch point, you mark the direction you are about to attempt with an arrow. If a dead-end is encountered just around the corner, you retreat to the branch point, mark &#x201C;dead-end&#x201D; for that direction, and try another direction. By marking the directions that have failed, you avoid needlessly trying them again. </p>
+  <p class="text">This two-dimensional problem involving backtracking provides us with a recursive matrix problem (and its entire solution), translated from <em>Oh! Pascal!</em>, 2nd edition. Your programming assignment will also be a recursive matrix problem.</p>
+  <p class="text">The key topics for this lesson are:</p>
+  <ol type="A" class="text">
+    <li class="text"><a href="AB24-A.html">Defining the Maze Problem</a></li>
+    <li class="text"><a href="AB24-B.html">Developing the Recursive Solution</a></li>
+  <li class="text"><a href="AB24-C.html">The Solution to the Maze Problem</a></li>
+  </ol><br>  
+  <br>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header"><a href="../vocabulary/index_AB.html#AB24">AB24 Vocabulary</a></span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 2 of 7</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <table width="500" border="0">
+    <tr class="text">
+      <td width="50%">BACKTRACKING</td>
+      <td width="50%">&#xA0;</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr class="text">
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+    <tr>
+      <td>&#xA0;</td>
+      <td>&#xA0;</td>
+    </tr>
+  </table>
+  <br>
+  <br>  
+  <br>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header">A. Defining the Maze Problem</span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 3 of 7</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <ol class="text">
+    <li><p>The maze will be defined as a 2-D grid of asterisks (marking walls) and blanks (marking potential paths). The size of the grid will be 12 x 12 and the starting location will be at 6, 6.</p>
+    </li>
+  <li>
+        <p>The data structure for this problem will be a 2-dimensional array of <strong><code>char</code></strong>. The array will be declared as a 13 x 13 grid so that we can use locations 1..12 by 1..12. Row 0 and column 0 will not be used in the data structure.</p>
+  </li>
+  <li>
+          <p>The initial grid is stored as a text file and will be loaded into the array.</p>
+          <p>(Here is a copy of the <em>mazeData.txt</em> file)</p>
+		  <p><img src="http://iws.punahou.edu/user/DKiang/apcs/LessonAB24/images/Fig_AB24_1.gif" width="120" height="211"></p>
+  </li>
+  <li>
+      <p>The solution is a backtracking algorithm involving a series of trial and error attempts. A potential path out of the maze will be traced with a !, with moves limited to horizontal or vertical directions. If a dead-end is encountered, back up and try a different direction.</p>
+  </li>
+  <li>
+    <p>We will be at an exit point if we arrive at row 1 or <code>MAXROW</code>, or at column 1 or <code>MAXCOL</code>.</p>
+  </li>
+  </ol>
+  <p>&#xA0;</p>
+  <br><br>  
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header">B. Developing the Recursive Solution</span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 4 of 7</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <ol class="text">
+    <li>
+      <p>In developing a recursive solution, consider the base cases first. What situation(s) cause the recursive method to exit?      </p>
+      <ol type="a" class="text">
+            <li>
+              <p>We have arrived at a location that is off the data structure. It is important to catch this situation first to avoid an array indexing error.</p>
+            </li>
+          <li>
+              <p>Encountering a &apos;*&apos; character means that we have run into a wall. The algorithm should stop.</p>
+          </li>
+        <li>
+            <p>Encountering a location we have already visited should cause the algorithm to stop.</p>
+        </li>
+        <li>
+          <p>Arriving at a location that has a row or column value equal to 1 or <code>MAXROW</code> or <code>MAXCOL</code> means that we have found an exit point.</p>
+        </li>
+      </ol>
+    </li>
+    <li>
+      <p>The general case of encountering a blank space requires the following steps: </p>
+    </li>
+<ol type="a" class="text">
+      <li>
+        <p>Change the character value from the blank space to the &apos;!&apos; character.</p>
+      </li>
+    <li>
+        <p>Check to see if you are at an exit point. If so, print the maze with a trail of &apos;!&apos; markers to the exit point.</p>
+    </li>
+<li>
+      <p>If you are not at an exit point, make 4 recursive calls to check all 4 directions, feeding the new coordinates of the 4 neighboring cells.</p>
+    </li>
+</ol>
+        <li>When an exit point is found, print only the successful trail of &apos;!&apos; marks that leads to an exit. As a result, it is necessary for each recursive call to work with a copy of the array. Why is this? If a reference to the original array is passed with each recursive call, the placement of &apos;!&apos; marks would be permanent in the data structure.</li>
+  </ol>
+  <p>&#xA0;</p><br><br>
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td width="90%"><span class="header">C. The Solution to the Maze Problem</span></td>
+    <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 5 of 7</nobr></font></td>
+  </tr>
+</table>
+  <br>
+  <blockquote class="text">
+    <p><code>import java.io.File;<br>
+      import java.util.Scanner;<br>
+      import java.io.IOException;</code></p>
+  <p><code>/**<br>
+  &#xA0;* Description of the Class<br>
+  &#xA0;*<br>
+  &#xA0;* @author Administrator<br>
+  &#xA0;* @created July 16, 2002<br>
+  &#xA0;*/<br>
+  <strong>class</strong> ThreadTheMaze{<br>
+  &#xA0;/**<br>
+  &#xA0;&#xA0;* Description of the Field<br>
+  &#xA0;&#xA0;*/<br>
+  &#xA0;&#xA0;<strong>private final static char</strong> BLANK = &apos; &apos;;<br>
+  &#xA0;&#xA0;<strong>private static final int</strong> MAXROW = 12;<br>
+  &#xA0;&#xA0;<strong>private static final int</strong> MAXCOL = 12;<br>
+  &#xA0;&#xA0;<strong>private int</strong> myMaxRow;<br>
+  &#xA0;&#xA0;<strong>private int</strong> myMaxCol;<br>
+  &#xA0;&#xA0;<strong>private char</strong> [][] myMaze;</code></p>
+    <p><code> &#xA0;&#xA0;<strong>public</strong> ThreadTheMaze(){<br>
+  &#xA0;&#xA0; myMaze = <strong>new</strong> char [MAXROW + 1][MAXCOL + 1];<br>
+  &#xA0;&#xA0; myMaxRow = myMaze.length - 1;<br>
+  &#xA0;&#xA0; myMaxCol = myMaze[0].length - 1;<br>
+  &#xA0;&#xA0;}</code></p>
+    <p><code> &#xA0;&#xA0;/**<br>
+  &#xA0;&#xA0; * Initiates the trace process<br>
+  &#xA0;&#xA0; *<br>
+  &#xA0;&#xA0; * @param none<br>
+  &#xA0;&#xA0; */<br>
+  &#xA0;&#xA0;<strong>public void</strong> doTraceMaze() {<br>
+  &#xA0;&#xA0;&#xA0;loadMaze();<br>
+  &#xA0;&#xA0;&#xA0;traceMaze(myMaze, myMaxRow/2, myMaxCol/2);<br>
+  &#xA0;&#xA0;}</code></p>
+    <p><code> &#xA0;&#xA0;/**<br>
+  &#xA0;&#xA0; * Loads the maze characters from mazeData.txt<br>
+  &#xA0;&#xA0; *<br>
+  &#xA0;&#xA0; * @param maze Description of Parameter<br>
+  &#xA0;&#xA0; */<br>
+  &#xA0;&#xA0;<strong>private void</strong> loadMaze(){<br>
+  &#xA0;&#xA0;&#xA0;String line;<br>
+  &#xA0;&#xA0;&#xA0;Scanner in;<br>
+  &#xA0;&#xA0;&#xA0;<strong>try</strong>{<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;in = <strong>new</strong> Scanner(<strong>new</strong> File(&quot;mazeData.txt&quot;));</code></p>
+    <p><code> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<strong>for</strong> (<strong>int</strong> row = 1; row &lt;= myMaxRow; row++){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;line = in.nextLine();<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<strong>for</strong> (<strong>int</strong> col = 1; col &lt;= myMaxCol; col++){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;myMaze[row][col] = line.charAt(col-1);<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;&#xA0;}<strong>catch</strong>(IOException i){<br>
+  &#xA0;&#xA0;&#xA0;System.out.println(&quot;Error: &quot; + i.getMessage());<br>
+  &#xA0;&#xA0;}<br>
+  }</code></p>
+    <p><code> &#xA0;&#xA0;/**<br>
+  &#xA0;&#xA0; * Description of the Method<br>
+  &#xA0;&#xA0; *<br>
+  &#xA0;&#xA0; * @param maze Description of Parameter<br>
+  &#xA0;&#xA0; */<br>
+  &#xA0;&#xA0;<strong>public void</strong> printMaze(char[][] maze){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;Scanner console = <strong>new</strong> Scanner(System.in);</code></p>
+    <p><code> &#xA0;&#xA0;&#xA0;&#xA0;<strong>for</strong> (<strong>int</strong> row = 1; row &lt;= myMaxRow; row++){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<strong>for</strong> (<strong>int</strong> col = 1; col &lt;= myMaxCol; col++){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;System.out.print(&quot;&quot; + maze[row][col]);<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;System.out.println();<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;System.out.println();<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;System.out.println(&quot;Hit enter to see if there are more solutions.&quot;);<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;String anything = console.nextLine();<br>
+  &#xA0;&#xA0;}</code></p>
+    <p><code> &#xA0;&#xA0;/**<br>
+      &#xA0;&#xA0; * Will attempt to find a path out of the maze. A<br>
+&#xA0;&#xA0;      * path will be marked with the ! marker. The method <br>
+      &#xA0;&#xA0; * makes a copy of the array each time so that only <br>
+&#xA0;&#xA0;      * the path out will be marked, otherwise extra ! <br>
+      &#xA0;&#xA0; * markers will appear in the answer.<br>
+  &#xA0;&#xA0; * The function is recursive.<br>
+  &#xA0;&#xA0; *<br>
+  &#xA0;&#xA0; * @param maze Description of Parameter<br>
+  &#xA0;&#xA0; * @param row Description of Parameter<br>
+  &#xA0;&#xA0; * @param col Description of Parameter<br>
+  &#xA0;&#xA0; */<br>
+  &#xA0;&#xA0;<strong>public void</strong> traceMaze(<strong>char</strong>[][] maze, <strong>int</strong> row, <strong>int</strong> col){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;//char[][] mazeCopy = (char[][])maze.clone();</code></p>
+    <p><code>&#xA0;&#xA0;&#xA0;&#xA0;<strong>char</strong>[][] mazeCopy = <strong>new</strong> <strong>char</strong>[maze.length][maze[0].length];<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;<strong>for</strong> (<strong>int</strong> r = 0; r &lt; mazeCopy.length; r++){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<strong>for</strong> (<strong>int</strong> c = 0; c &lt; mazeCopy[0].length; c++){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;mazeCopy[r][c] = maze[r][c];<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;}</code></p>
+    <p><code>&#xA0;&#xA0;&#xA0;&#xA0;<strong>if</strong> (1 &lt;= row &amp;&amp; row &lt;= myMaxRow &amp;&amp; 1 &lt;= col &amp;&amp; col &lt;= myMaxCol){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// boundary check, if false, a base case<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<strong>if</strong> (BLANK == mazeCopy[row][col]){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// if false, base case<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;mazeCopy[row][col] = &apos;!&apos;;<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<strong>if</strong> (1 == row || myMaxRow == row || 1 == col || myMaxCol == col){<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;printMaze(mazeCopy); // base case<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;}<strong>else</strong>{<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;traceMaze(mazeCopy, row - 1, col);<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;traceMaze(mazeCopy, row, col + 1);<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;traceMaze(mazeCopy, row + 1, col);<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;traceMaze(mazeCopy, row, col - 1);<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;&#xA0;&#xA0;}<br>
+  &#xA0;&#xA0;}</code></p>
+    <p><code>}</code></p>
+    <p>Here are the two solutions when starting at location (6,6):</p>
+    <p><img src="http://iws.punahou.edu/user/DKiang/apcs/LessonAB24/images/Fig_AB24_1a.gif" width="441" height="184"></p>
+  </blockquote>  <ol>
+    <li class="text">
+      <p>It is very significant that a blank space be changed to an &apos;!&apos; mark before the recursive calls are made. For example, suppose you began at location 6,6 and a blank space was encountered. If you didn&apos;t change the blank to an &apos;!&apos; mark, the recursive call to solve the upward direction would receive the location 5,6. This recursive call would eventually look back down at location 6,6 - the location where it came from. A blank space would still be there and the recursive calls would go around in circles until the computer ran out of memory.</p>
+    </li>
+  <li class="text">
+      <p>Changing the blank space to an &apos;!&apos; mark is like leaving a trail of markers. When a recursive call of a neighboring cell looks back at the cell from which it came, it will see a &apos;!&apos; mark and not a blank space. </p>
+    </li>
+    </ol>  <p>&#xA0;</p><br>  
+  <br>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td width="90%"><span class="header">Summary/Review</span></td>
+      <td width="200" align="right"><font size="1" face="Verdana, Arial, Helvetica"><nobr> page 6 of 7</nobr></font></td>
+    </tr>
+  </table>
+  <br>
+  <p class="text">Some of the earlier examples of recursion were applied to linear problems. The factorial or Fibonacci problems were one dimensional, which required only one recursive call within the algorithm. The maze problem is best-solved recursively because of the different directions that the problem solving takes. Loosely stated, any problem that involves multiple directions and returning to a branch point is a likely candidate for recursion.</p>
+  <br><br><br><h2>Chapter 25</h2><br>  
   <br>
   <table cellspacing="0" cellpadding="0" border="0">
     <tr>
