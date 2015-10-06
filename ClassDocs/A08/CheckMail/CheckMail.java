@@ -40,13 +40,18 @@ public class CheckMail{
         boolean op3 = op1 || op2;
         if(op3){
             if(op1&&op2){
-                
+                System.out.println("Package is too large and too heavy.");
             }
             else if (op2){
-                
+                System.out.println("Package is too heavy.");
             }
+            else if (op3){
+                System.out.println("Package is too large.");
+            } 
         }
-        else 
+        else{
+            System.out.println("Package is acceptable.");
+        } 
     }
     
 }
