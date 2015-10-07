@@ -1,34 +1,31 @@
+import java.util.*;
 public class CheckMail{
-    private double length;
-    private double width;
-    private double height;
-    private double weight;
-    
-    public CheckMail(double dim1, double dim2, double dim3, double w){
-        if(dim1>=dim2 && dim1>=dim3){
-            length = dim1;
-            width = dim2;
-            height = dim3;
+    private double dim1, dim2, dim3, weight;
+    public CheckMail(double d1, double d2, double d3, double w){
+        if(d1>=d2 && d1>=d3){
+            dim1 = d1;
+            dim2 = d2;
+            dim3 = d3;
         }
-        else if (dim2>=dim1 && dim2>=dim3){
-            length = dim2;
-            width = dim3;
-            height = dim1;
+        else if (d2>=d1 && d2>=d3){
+            dim1 = d2;
+            dim2 = d3;
+            dim3 = d1;
         }
-        else if (dim3>=dim1 && dim3>=dim2){
-            length = dim3;
-            width = dim1;
-            height = dim2;
+        else if (d3>=d1 && d3>=d2){
+            dim1 = d3;
+            dim2 = d1;
+            dim3 = d2;
         } 
         weight = w;
     }
     
     public double getLength(){
-        return length;
+        return this.dim1;
     }
     
     public double getGirth(){
-        return 2*height + 2*width;
+        return 2*this.dim2 + 2*this.dim3;
     }
     
     public double getSize(){
@@ -40,17 +37,17 @@ public class CheckMail{
         boolean op3 = op1 || op2;
         if(op3){
             if(op1&&op2){
-                System.out.println("Package is too large and too heavy.");
+                System.out.println("Package is too large and too heavy");
             }
             else if (op2){
-                System.out.println("Package is too heavy.");
+                System.out.println("Package is too heavy");
             }
             else if (op3){
-                System.out.println("Package is too large.");
+                System.out.println("Package is too large");
             } 
         }
         else{
-            System.out.println("Package is acceptable.");
+            System.out.println("Package is acceptable");
         } 
     }
     
