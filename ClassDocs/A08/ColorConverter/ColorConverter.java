@@ -1,24 +1,30 @@
 public class ColorConverter{
-    private int red;
-    private int blue;
-    private int value3;
+    private int red, blue, green;
+    private int hue, saturation, value;
+    
     private int type;
     
     public ColorConverter( int t, int val1, int val2, int val3){
-        red = val1;
-        blue = val2;
-        value3 = val3;
-        type = t;
+        if(t == 1){
+            red = val1;
+            blue = val2;
+            green = val3;
+        }
+        else{
+            hue = val1;
+            saturation = val2;
+            value = val3;
+        }
     }
     public void setRGB(double v1,double v2,double v3){
         this.red = v1;
         this.blue = v2;
-        this.value3 = v3;
+        this.green = v3;
     }
     public void setHSV(double v1,double v2,double v3){
-        this.red = v1;
-        this.blue = v2;
-        this.value3 = v3;
+        this.hue = v1;
+        this.saturation = v2;
+        this.value = v3;
     }
     private double calculateSaturation(){
        return; 
@@ -28,20 +34,20 @@ public class ColorConverter{
     }
     public void RGBtoHSV(){
         double h, s, v;
-        double cmax = getMaximum(this.red, this.blue, this.value3);
-        double cmin = getMinimum(this.red, this.blue, this.value3);
+        double cmax = getMaximum(this.red, this.blue, this.green);
+        double cmin = getMinimum(this.red, this.blue, this.green);
         double delta = cmax - cmin;
         //Calculate H
         if(delta == 0){
             h = 0;
         }
         else if((double)this.red == cmax){
-            h = (((this.blue - this.value3)/delta)%6)*60;
+            h = (((this.blue - this.green)/delta)%6)*60;
         }
         else if((double)this.blue == cmax){
-            h = ((this.value3 - this.red)/delta + 2)*60;
+            h = ((this.green - this.red)/delta + 2)*60;
         }
-        else if((double)this.value3 == cmax){
+        else if((double)this.green == cmax){
             h = ((this.red - this.blue)/delta + 4)*60;
         }
         //Calculate S
@@ -51,26 +57,42 @@ public class ColorConverter{
             s = delta/cmax;
         }
         //Do some magic and then at the end:
-        this.red = (int)h;
-        this.blue = (int)s;
-        this.value3 = (int)v;
-        this.type = 1;
+        this.hue = (int)h;
+        this.saturation = (int)s;
+        this.value = (int)v;
     }
     public void HSVtoRGB(){
         double r, g, b, c, x, m;
-        double h = (double)this.red;
-        double s = (double)this.blue;
-        double v = (double)this.value3;
+        double h = (double)this.hue;
+        double s = (double)this.saturation;
+        double v = (double)this.value;
         c = v * (double)this.blue;
         x = c * (1 - Math.abs((h/60)%2-1));
         m = (double)v - c;
-        if(h<60){
+        int op = 360/(int)h;
+        switch(op){
+            case 0:
+                
+                break;
+            case 1:
+                
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            case 4:
+                
+                break;
+        }
             
-        }else if (h<) 
+        }
         //Do some magic and then at the end:
         this.red = (int)r;
         this.blue = (int)g;
-        this.value3 = (int)b;
+        this.green = (int)b;
         this.type = 1;
     }
     private double getMaximum(double v1,double v2,double v3){
