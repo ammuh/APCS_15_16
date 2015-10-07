@@ -1,23 +1,23 @@
 public class ColorConverter{
-    private int value1;
-    private int value2;
+    private int red;
+    private int blue;
     private int value3;
     private int type;
     
     public ColorConverter( int t, int val1, int val2, int val3){
-        value1 = val1;
-        value2 = val2;
+        red = val1;
+        blue = val2;
         value3 = val3;
         type = t;
     }
     public void setRGB(double v1,double v2,double v3){
-        this.value1 = v1;
-        this.value2 = v2;
+        this.red = v1;
+        this.blue = v2;
         this.value3 = v3;
     }
     public void setHSV(double v1,double v2,double v3){
-        this.value1 = v1;
-        this.value2 = v2;
+        this.red = v1;
+        this.blue = v2;
         this.value3 = v3;
     }
     private double calculateSaturation(){
@@ -26,40 +26,52 @@ public class ColorConverter{
     private double calculateBrightness(){
         return;
     }
-    public void HSVtoRGB(){
-        double h;
-        double s;
-        double v;
-        double cmax = getMaximum(this.value1, this.value2, this.value3);
-        double cmin = getMinimum(this.value1, this.value2, this.value3);
+    public void RGBtoHSV(){
+        double h, s, v;
+        double cmax = getMaximum(this.red, this.blue, this.value3);
+        double cmin = getMinimum(this.red, this.blue, this.value3);
         double delta = cmax - cmin;
         //Calculate H
         if(delta == 0){
             h = 0;
         }
-        else if((double)this.value1 == cmax){
-            h = ((this.value2 - this.value3)/delta)%6;
+        else if((double)this.red == cmax){
+            h = (((this.blue - this.value3)/delta)%6)*60;
         }
-        else if((double)this.value2 == cmax){
-            h = (this.value3);
+        else if((double)this.blue == cmax){
+            h = ((this.value3 - this.red)/delta + 2)*60;
         }
         else if((double)this.value3 == cmax){
-            h = ;
+            h = ((this.red - this.blue)/delta + 4)*60;
         }
         //Calculate S
         if(cmax == 0){
             s = 0;
-        }
-        else{
+        }else{
             s = delta/cmax;
         }
         //Do some magic and then at the end:
-        this.value1 = (int)h;
-        this.value2 = (int)s;
+        this.red = (int)h;
+        this.blue = (int)s;
         this.value3 = (int)v;
+        this.type = 1;
     }
-    public void RGBtoHSV(){
-        
+    public void HSVtoRGB(){
+        double r, g, b, c, x, m;
+        double h = (double)this.red;
+        double s = (double)this.blue;
+        double v = (double)this.value3;
+        c = v * (double)this.blue;
+        x = c * (1 - Math.abs((h/60)%2-1));
+        m = (double)v - c;
+        if(h<60){
+            
+        }else if (h<) 
+        //Do some magic and then at the end:
+        this.red = (int)r;
+        this.blue = (int)g;
+        this.value3 = (int)b;
+        this.type = 1;
     }
     private double getMaximum(double v1,double v2,double v3){
         if(v1>=v2 && v1>=v3){
@@ -84,30 +96,22 @@ public class ColorConverter{
         }
     }
     /*
-    a. 6 integer fields for the RGB values – red, green, and blue and three for the HSV values – Hue,
-Saturation, and brightness.
-b. Constructor that takes four integer arguments – type, value1, value2, value3. If type is 1 then the
-passed in values are used to initialize the RGB values. If type is 2 then the passed in values are
-used to initialize the HSV values.
-c. Method setRGB that takes three integer arguments and sets the RGB values to the passed in
-values
-d. Method setHSV that takes takes three integer arguments and sets the HSV values to the passed
-in values
-e. Private method getMaximum that takes three double arguments and finds and returns the largest
-of the three numbers. Do not use Math.max to do this.
-f. Private method getMinimum that takes three double arguments and finds and returns the
-smallest of the three numbers. Do not use Math.min to do this.
-g. Private method calculateHue that calculates and returns the hue value based on the formulas.
-Do not use if – else statements. Just use if statements for each of the different conditions.
-h. Private method calculateSaturation that calculates and returns the saturation value based
-on the formulas.
-i. Private method calculateBrightness that calculates and returns the brightness value based on the
-formulas.
-j. Method RGBtoHSV that converts the RGB values to HSV values by calling the private methods
-described above. The HSV fields get updated.
-k. Method HSVtoRGB that converts the HSV values to RGB values using the formulas. Note that
-the values of RGB are always rounded up if the value is less than 255. So if the red value
-calculated is 45.3, it should get rounded up to 46. But if the red value is 255.3, it will get rounded
-down to 255. You may not use any of the built in Math methods to do this. Write a series of if
-statements to do the rounding.*/
+    public void printRGBtoHSV(){
+        char c = 176;
+        System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "\tRGB = (" ,
+        red , ", " , green , ", " , blue , ")");
+        System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (" , hue
+        , (""+ c+", ") , saturation , "%, " , brightness ,
+        "%)\n");
+    }
+    public void printHSVtoRGB(){
+        char c = 176;
+        System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (" ,
+        hue , (""+ c+", ") , saturation , "%, " , brightness ,
+        "%)");
+        System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "\tRGB = (" ,
+        red , ", " , green , ", " , blue , ")\n");
+    }
+    */
+
 }
