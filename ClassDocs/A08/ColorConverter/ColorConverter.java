@@ -47,8 +47,7 @@ public class ColorConverter{
         this.hue = v1;
         this.saturation = v2;
         this.brightness = v3;
-    }
-<<<<<<< HEAD
+}
     private double calculateHue(){
         double h = 0;
         double cmax = getMaximum((double)this.red/255, (double)this.blue/255, (double)this.green/255);
@@ -82,12 +81,11 @@ public class ColorConverter{
     private double calculateBrightness(){
         return 100*getMaximum((double)this.red/255, (double)this.blue/255, (double)this.green/255);
     }
-    
-=======
+
     /***
      * Converts the RGB values to HSV values.
      */
->>>>>>> 60ca04074ae225c81de23cf55804658694160c22
+
     public void RGBtoHSV(){
         //Casts h, s, and v to round down.
         this.hue = (int)calculateHue();
