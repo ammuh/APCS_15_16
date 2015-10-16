@@ -30,7 +30,7 @@ public class ColorConverter{
         double cmax = getMaximum((double)this.red/255, (double)this.blue/255, (double)this.green/255);
         double cmin = getMinimum((double)this.red/255, (double)this.blue/255, (double)this.green/255);
         double delta = cmax - cmin;
-         if(delta == 0){
+        if(delta == 0){
             h= 0;
         }
         if((double)this.red/255 == cmax){
