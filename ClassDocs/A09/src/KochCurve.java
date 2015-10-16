@@ -3,23 +3,24 @@
  */
 import gpdraw.*;
 public class KochCurve {
-    public static SketchPad canvas;
+    public static SketchPadWithNoDelay canvas;
     public static DrawingTool pen;
     public KochCurve(){
-        canvas = new SketchPad(500,500);
+        canvas = new SketchPadWithNoDelay(700, 700, 0, 0);
         pen = new DrawingTool(canvas);
         pen.up();
-        pen.move(-100, 300);
+        pen.move(-150,150);
         pen.turnRight();
         pen.turnRight();
     }
     public static void main(String args[]){
         KochCurve curve = new KochCurve();
-        curve.drawKochCurve(3, 300);
+
+        curve.drawKochCurve(6, 500);
         pen.turnRight(120);
-        curve.drawKochCurve(3, 300);
+        curve.drawKochCurve(6, 500);
         pen.turnRight(120);
-        curve.drawKochCurve(3, 300);
+        curve.drawKochCurve(6, 500);
     }
     public void drawKochCurve(int level, double length){
         if(level < 1){
