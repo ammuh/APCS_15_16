@@ -1,5 +1,7 @@
 /**
- * Created by Ammar Husain on 10/15/2015.
+ * Class for creating Koch fractals.
+ * @author Ammar Husain
+ * Period 4
  */
 import gpdraw.*;
 public class KochCurve {
@@ -8,10 +10,6 @@ public class KochCurve {
      public KochCurve(int l, int w, int posx, int posy){
         canvas = new SketchPadWithNoDelay(l, w, posx, posy);
         pen = new DrawingTool(canvas);
-        pen.up();
-        pen.move(-150,150);
-        pen.turnRight();
-        pen.turnRight();
     }
     public void drawSnowflake(int level, double length){
         this.drawKochCurve(level, length);
