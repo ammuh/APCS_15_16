@@ -23,7 +23,7 @@ public class KochCurve {
             pen.down();
             pen.move(length);
             pen.up();
-        } 
+        }
         else {
             pen.down();
             this.drawKochCurve(level - 1, length / 3.0);
