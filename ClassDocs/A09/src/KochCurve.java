@@ -5,18 +5,20 @@ import gpdraw.*;
 public class KochCurve {
     public SketchPadWithNoDelay canvas;
     public DrawingTool pen;
-    public KochCurve(){
-        canvas = new SketchPadWithNoDelay(700, 700, 0, 0);
+     public KochCurve(int l, int w, int posx, int posy){
+        canvas = new SketchPadWithNoDelay(l, w, posx, posy);
         pen = new DrawingTool(canvas);
         pen.up();
         pen.move(-150,150);
         pen.turnRight();
         pen.turnRight();
     }
-    public static void main(String args[]){
-        KochCurve curve = new KochCurve();
-
-        curve.drawKochCurve(2, 300);
+    public void drawSnowFlake(int level, double length){
+        curve.drawKochCurve(level, length);
+        this.pen.turnRight(120);
+        curve.drawKochCurve(level, length);
+        this.pen.turnRight(120);
+        curve.drawKochCurve(level, length);
     }
     public void drawKochCurve(int level, double length){
         if(level < 1){
