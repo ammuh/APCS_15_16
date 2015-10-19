@@ -1,8 +1,17 @@
 /**
- * Created by Ammar Husain on 10/15/2015.
+ * @author Ammar Husain
+ * Period 4
+ */
+/** Allows you to do math with fibonacci sequences.
  */
 public class Fibonacci {
-    public static int fib(int n){
+    /**
+     * Finds fibonacci number at a given position.
+     * @param n Position of fib sequence.
+     * @return Fib number
+     */
+    public int fib(int n)
+    {
         if(n == 0){
             return 0;
         }
@@ -12,5 +21,6 @@ public class Fibonacci {
         else {
             return fib(n-1) + fib(n-2);
         }
-    }
-}
+    }//end method
+
+}//end class
