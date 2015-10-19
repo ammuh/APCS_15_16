@@ -13,12 +13,12 @@ public class KochCurve {
         pen.turnRight();
         pen.turnRight();
     }
-    public void drawSnowFlake(int level, double length){
-        curve.drawKochCurve(level, length);
+    public void drawSnowflake(int level, double length){
+        this.drawKochCurve(level, length);
         this.pen.turnRight(120);
-        curve.drawKochCurve(level, length);
+        this.drawKochCurve(level, length);
         this.pen.turnRight(120);
-        curve.drawKochCurve(level, length);
+        this.drawKochCurve(level, length);
     }
     public void drawKochCurve(int level, double length){
         if(level < 1){

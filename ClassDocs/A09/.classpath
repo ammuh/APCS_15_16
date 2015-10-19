@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="WorksheetHelper"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="I:/apcs_2015_2016/ClassDocs/Libraries/mygpdraw.jar"/>
+	<classpathentry kind="lib" path="I:/apcs_2015_2016/ClassDocs/gpdraw/gpdraw.jar"/>
+	<classpathentry kind="output" path="out/production/A09"/>
+</classpath>
