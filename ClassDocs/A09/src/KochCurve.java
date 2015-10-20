@@ -1,23 +1,43 @@
 /**
- * Created by Ammar Husain on 10/15/2015.
+ * Class for creating Koch fractals.
+ * @author Ammar Husain
+ * Period 4
  */
 import gpdraw.*;
 public class KochCurve {
     public SketchPadWithNoDelay canvas;
     public DrawingTool pen;
-    public KochCurve(){
-        canvas = new SketchPadWithNoDelay(700, 700, 0, 0);
+    /**
+     * Constructor that creates a sketchpad and pen for the specific curve to be drawn.
+     * @param l Length of the window.
+     * @param w Width of the window. 
+     * @param posx X position of the koch curve starting position. 
+     * @param posy Y position of the koch curve starting position.
+     */
+    public KochCurve(int l, int w, int posx, int posy){
+        canvas = new SketchPadWithNoDelay(l, w, posx, posy);
         pen = new DrawingTool(canvas);
         pen.up();
-        pen.move(-150,150);
-        pen.turnRight();
-        pen.turnRight();
+        pen.move(-100, 75);
+        pen.setDirection(0);
     }
-    public static void main(String args[]){
-        KochCurve curve = new KochCurve();
-
-        curve.drawKochCurve(2, 300);
+    /**
+     * Draws a snowflake consisting of three koch curves positioned in a triangle shape.
+     * @param level Level of iterations for the Koch Curves.
+     * @param length Length of the base iteration.
+     */
+    public void drawSnowflake(int level, double length){
+        this.drawKochCurve(level, length);
+        this.pen.turnRight(120);
+        this.drawKochCurve(level, length);
+        this.pen.turnRight(120);
+        this.drawKochCurve(level, length);
     }
+    /**
+     * Draws a Koch curve recursively by drawing smaller iterations of the spiked edge.
+     * @param level Level of iterations for the Koch Curves.
+     * @param length Length of the base iteration.
+     */
     public void drawKochCurve(int level, double length){
         if(level < 1){
             pen.down();
