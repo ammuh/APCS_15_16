@@ -17,6 +17,12 @@ public class KochCurve {
     public KochCurve(int l, int w, int posx, int posy){
         canvas = new SketchPadWithNoDelay(l, w, posx, posy);
         pen = new DrawingTool(canvas);
+<<<<<<< HEAD
+        pen.up();
+        pen.move(-100, 75);
+        pen.setDirection(0);
+=======
+>>>>>>> c84b715ad97399c1fa3bcb225f821236d3bfa41e
     }
     /**
      * Draws a snowflake consisting of three koch curves positioned in a triangle shape.
@@ -40,7 +46,7 @@ public class KochCurve {
             pen.down();
             pen.move(length);
             pen.up();
-        } 
+        }
         else {
             pen.down();
             this.drawKochCurve(level - 1, length / 3.0);
