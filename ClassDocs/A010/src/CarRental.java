@@ -3,11 +3,7 @@ public class CarRental{
     private String model;
     private String plate;
     private String code;
-    public static void main(String args[]){
-        CarRental car = new CarRental("Tesla", "Model x", "CPR 607");
-        car.computeCode();
-        System.out.print(car.getCode());
-    }
+   
     public CarRental( String mk, String mdl, String lis){
         make = mk;
         model = mdl;
@@ -23,5 +19,9 @@ public class CarRental{
     }
     public String getCode(){
         return this.code;
+    }
+    public String toString(){
+        return "Make = "+ this.make+ "\nModel = "+ this.model+ "\n" + this.plate + " = " + this.getCode(); 
+
     }
 }

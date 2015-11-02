@@ -4,29 +4,54 @@
 import java.util.Scanner;
 public class CheckProtection {
     private String amount;
-    private final int MAX_LENGTH = 12;
+    private final int MAX_LENGTH;
+    public static void main(String args[]){
+        CheckProtection a = new CheckProtection(10);
+    }
     public CheckProtection(int spaces){
+        MAX_LENGTH = spaces;
         Scanner s = new Scanner(System.in);
         System.out.print("Enter the check amount:");
         double a = s.nextDouble();
-        a = Math.round(a);
+        a = Math.round(a*100)/100.00;
         amount = "" + a;
-        if(((amount.length()-3 )/ 3) + amount.length() > MAX_LENGTH){
-            System.out.println("Error: Number is too big");
+        if(amount.length() - amount.indexOf(".") <3){
+            amount += "0";
         }
-        amount = addCommas(amount);
-        amount = addAsterisks(amount);
+        printAmount();
     }
     public String addCommas(String s){
-        if(s.charAt(0) == ''|| s.charAt(0) == ''|| s.charAt(0) == ''){
-
+        int l;
+        if(s.indexOf(".") >= 0){
+            return addCommas(s.substring(0, s.length()-3)) + s.substring(s.length()-3, s.length());
+        }
+        else{
+            if(s.length() < 4){
+                return s;
+            }
+            else{
+                return addCommas(s.substring(0, s.length()-3)) + "," + s.substring(s.length()-3, s.length());
+            }
         }
     }
+    
     public String addAsterisks(String s){
-
+        if(s.length() != MAX_LENGTH){
+            return addAsterisks("*"+ s);
+        }
+        else{
+            return s;
+        }
     }
+    
     public void printAmount(){
-        System.out.println(this.amount);
+        String finAm = addAsterisks(addCommas(this.amount));
+        if( finAm.length() > MAX_LENGTH){
+            System.out.println("Error: Number is too big");
+        }
+        else{
+            System.out.println(finAm);
+        }
     }
     /*
     b. A constructor that

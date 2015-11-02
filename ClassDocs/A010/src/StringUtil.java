@@ -77,4 +77,18 @@ public class StringUtil {
             return s;
         }
     }
+    public static String pigLatin(String s){
+        String word;
+        if(s.indexOf(" ") < 0){
+            if(s.empty()){
+                word = "";
+            }else{
+                word = s;
+            }
+        }
+        else{
+            word = s.substring(0, s.indexOf(" "));
+        }
+            
+    }
 }
