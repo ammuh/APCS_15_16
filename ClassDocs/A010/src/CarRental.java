@@ -1,3 +1,7 @@
+/**
+ * @author Ammar Husain
+ * Period 4
+ */
 public class CarRental{
     private String make;
     private String model;
