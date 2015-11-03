@@ -1,6 +1,6 @@
 public class StringUtil {
     public static void main(String args[]) {
-        System.out.print(pigLatin("hi bye sir"));
+        System.out.print(reverse("race car"));
     }
 
     public static String reverse(String s) {
@@ -14,8 +14,7 @@ public class StringUtil {
         s = s.toLowerCase();
         if(s.length() == 0){
             return true;
-        }
-        if(s.length() == 1){
+        }else if(s.length() == 1){
             return true;
         }
         else {
@@ -55,8 +54,8 @@ public class StringUtil {
         } else if(s.toLowerCase().indexOf("you") != -1){
             s = s.substring(0, s.toLowerCase().indexOf("you")) + "U" + s.substring(s.toLowerCase().indexOf("you") +3, s.length());
             return shorthand(s);
-        } else if(s.toLowerCase().indexOf("for") != -1){
-            s = s.substring(0, s.toLowerCase().indexOf("for")) + "4" + s.substring(s.toLowerCase().indexOf("for") +3, s.length());
+        } else if(s.toLowerCase().indexOf("f" + "o" + "r") != -1){
+            s = s.substring(0, s.toLowerCase().indexOf("f" + "o" + "r")) + "4" + s.substring(s.toLowerCase().indexOf("f" + "o" + "r") +3, s.length());
             return shorthand(s);
         } else if(s.toLowerCase().indexOf('a') != -1){
             s = s.substring(0, s.toLowerCase().indexOf('a')) + s.substring(s.toLowerCase().indexOf('a') +1, s.length());
@@ -75,26 +74,6 @@ public class StringUtil {
             return shorthand(s);
         } else{
             return s;
-        }
-    }
-    public static String pigLatin(String s){
-        if(){
-
-        }
-
-
-
-
-
-        if(s.isEmpty()) {
-            return "";
-        }else if((int)s.toLowerCase().charAt(0) >= 97 && (int)s.toLowerCase().charAt(0) <= 122){
-            String word;
-           if(!(s.indexOf(" ") <=0)){
-                word = s.substring(0,s.indexOf(" "));
-           }
-        }else{
-            return s.charAt(0) + pigLatin(s.substring(1));
         }
     }
 }
