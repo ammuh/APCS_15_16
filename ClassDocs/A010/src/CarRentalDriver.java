@@ -12,7 +12,6 @@ public class CarRentalDriver{
         CarRental car1 = new CarRental(mk, mdl, lis);
         car1.computeCode();
         System.out.println(car1.toString());
-        
         System.out.print("Make: ");
         mk = s.nextLine();
         System.out.print("Model: ");
