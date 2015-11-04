@@ -1,3 +1,8 @@
+/**
+ * Car Rental Class Tester
+ * @author Ammar Husain
+ * Period 4
+ */
 import java.util.*;
 
 public class CarRentalDriver{
