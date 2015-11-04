@@ -1,4 +1,5 @@
 /**
+ * Class for converting license plates to Car Codes.
  * @author Ammar Husain
  * Period 4
  */

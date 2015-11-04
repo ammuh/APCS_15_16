@@ -1,4 +1,5 @@
 /**
+ * Class for performing extended String operations.
  * @author Ammar Husain
  * Period 4
  */

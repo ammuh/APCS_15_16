@@ -1,4 +1,5 @@
 /**
+ * Class for protecting check fraud.
  * @author Ammar Husain
  * Period 4
  */
