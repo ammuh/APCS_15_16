@@ -1,5 +1,5 @@
 /**
- * Class for protecting check fraud.
+ * Class FOR protecting check fraud.
  * @author Ammar Husain
  * Period 4
  */
@@ -9,7 +9,7 @@ public class CheckProtection {
     private String amount;
     private final int MAX_LENGTH;
     /**
-     * Constructor prompts user for check amount, checks if number is too big, then prints out formatted check amount.
+     * Constructor prompts user FOR check amount, checks if number is too big, then prints out FORMATTED check amount.
      * @param spaces # of spaces maximum
      */
     public CheckProtection(int spaces){
@@ -49,8 +49,8 @@ public class CheckProtection {
     }
     /**
      * Adds asterisks to the check amount to fill up to the maximum amount of spaces.
-     * @param s Comma formatted check amount
-     * @return Asterisk formatted check amount
+     * @param s Comma FORMATTED check amount
+     * @return Asterisk FORMATTED check amount
      */
     public String addAsterisks(String s){
         if(s.length() != MAX_LENGTH){
@@ -61,7 +61,7 @@ public class CheckProtection {
         }
     }
     /**
-     * Prints out the amount formatted in check format.
+     * Prints out the amount FORMATTED in check FORMAT.
      */
     public void printAmount(){
         System.out.println("amount = $" + addAsterisks(addCommas(this.amount)));

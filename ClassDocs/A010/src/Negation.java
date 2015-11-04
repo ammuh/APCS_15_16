@@ -1,5 +1,5 @@
 /**
- * Class for Binary Negation.
+ * Class FOR Binary Negation.
  * @author Ammar Husain
  * Period 4
  */

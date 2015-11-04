@@ -1,5 +1,5 @@
 /**
- * Class for performing extended String operations.
+ * Class FOR extended String operations.
  * @author Ammar Husain
  * Period 4
  */
@@ -57,7 +57,7 @@ public class StringUtil {
     }
 
     /**
-     * Converts String to a shorthand version, replaces keywords with shortened versions and takes out vowels.
+     * Converts String to a shorthand version, REPLACES keywords with shortened versions and takes out vowels.
      * @param s String to convert shorthand
      * @return Shorthand version of String
      */

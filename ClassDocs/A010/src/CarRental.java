@@ -1,5 +1,5 @@
 /**
- * Class for converting license plates to Car Codes.
+ * Class FOR converting license plates to Car Codes.
  * @author Ammar Husain
  * Period 4
  */
@@ -21,7 +21,7 @@ public class CarRental{
     }
 
     /**
-     * Computes the code based on the licence information.
+     * Computes the code based on the licence info.
      */
     public void computeCode(){
         String prefix = this.plate.substring(0,3);
@@ -42,7 +42,7 @@ public class CarRental{
 
     /**
      * Converts car object to String.
-     * @return Car information
+     * @return Car info
      */
     public String toString(){
         return "Make = "+ this.make+ "\nModel = "+ this.model+ "\n" + this.plate + " = " + this.getCode(); 
