@@ -1,8 +1,13 @@
+/**
+ * @author Ammar Husain
+ * Period 4
+ */
 public class StringUtil {
-    public static void main(String args[]) {
-        System.out.print(reverse("race car"));
-    }
-
+    /**
+     * Reverses a String arguement.
+     * @param s String to reverse
+     * @return Reversed String
+     */
     public static String reverse(String s) {
         if (!s.isEmpty()) {
             return "" + s.charAt(s.length() - 1) + reverse(s.substring(0, s.length() - 1));
@@ -10,6 +15,11 @@ public class StringUtil {
             return "";
         }
     }
+    /**
+     * Checks if String is a palindrome.
+     * @param s String to check if palindrome
+     * @return true/false if palindrome
+     */
     public static boolean palindrome(String s){
         s = s.toLowerCase();
         if(s.length() == 0){
@@ -44,6 +54,12 @@ public class StringUtil {
             }
         }
     }
+
+    /**
+     * Converts String to a shorthand version, replaces keywords with shortened versions and takes out vowels.
+     * @param s String to convert shorthand
+     * @return Shorthand version of String
+     */
     public static String shorthand(String s){
         if(s.toLowerCase().indexOf("and") != -1){
             s = s.substring(0, s.toLowerCase().indexOf("and")) + "&" + s.substring(s.toLowerCase().indexOf("and") +3, s.length());
