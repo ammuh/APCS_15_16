@@ -1,5 +1,5 @@
 public class Negation{
-    
+
     public static String negate(String s){
         if(s.isEmpty()){
             return "";
