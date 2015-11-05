@@ -1,5 +1,18 @@
+/**
+ * Class FOR Binary Negation.
+ * @author Ammar Husain
+ * Period 4
+ */
 public class Negation{
+<<<<<<< HEAD
 
+=======
+    /**
+     * Inverts a binary String
+     * @param s binary String
+     * @return negated binary String
+     */
+>>>>>>> 379e4c8cb3df98aa444240eb3102c5f8280dd1d8
     public static String negate(String s){
         if(s.isEmpty()){
             return "";
