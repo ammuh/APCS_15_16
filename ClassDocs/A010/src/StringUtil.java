@@ -9,6 +9,7 @@ public class StringUtil {
      * @param s String to reverse
      * @return Reversed String
      */
+
     public static String reverse(String s) {
         if (!s.isEmpty()) {
             return "" + s.charAt(s.length() - 1) + reverse(s.substring(0, s.length() - 1));
@@ -22,40 +23,30 @@ public class StringUtil {
      * @return true/false if palindrome
      */
     public static boolean palindrome(String s){
-        s = s.toLowerCase();
-        if(s.length() == 0){
-            return true;
-        }else if(s.length() == 1){
+        s = onlyLowerCase(s.toLowerCase());
+        System.out.println(s);
+        if(reverse(s).equals(s)){
             return true;
         }
-        else {
-            char a = s.charAt(0);
-            char b = s.charAt(s.length()-1);
-            if(((int) a >= 97 && (int) a <= 122) && ((int) b >= 97 && (int) b <= 122)){
-                if(a == b) {
-                    return palindrome(s.substring(1, s.length() - 1));
-                }
-                else {
-                    return false;
-                }
-            }
-            else {
-                if(!((int) a >= 97 && (int) a <= 122)){
-                    s = s.substring(1, s.length());
-                }
-                if(!((int) b >= 97 && (int) b <= 122)){
-                    if(s.length()>1){
-                        s = s.substring(0, s.length()-1);
-                    }
-                    else{
-                        s = "";
-                    }
-                }
-                return palindrome(s);
-            }
+        else{
+            return false;
         }
     }
 
+    /**
+     * Toolkit method for removing all characters except for lower case letters. Useful for palindrome.
+     * @param s String to filter for Lower Case
+     * @return filtered String
+     */
+    private static String onlyLowerCase(String s){
+        if(s.isEmpty()){
+            return "";
+        }else if(((int) s.charAt(0) >= 97 && (int) s.charAt(0) <= 122)) {
+            return s.charAt(0) + onlyLowerCase(s.substring(1));
+        }else{
+            return onlyLowerCase(s.substring(1));
+        }
+    }
     /**
      * Converts String to a shorthand version, REPLACES keywords with shortened versions and takes out vowels.
      * @param s String to convert shorthand
