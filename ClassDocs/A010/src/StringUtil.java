@@ -24,7 +24,6 @@ public class StringUtil {
      */
     public static boolean palindrome(String s){
         s = onlyLowerCase(s.toLowerCase());
-        System.out.println(s);
         if(reverse(s).equals(s)){
             return true;
         }
@@ -32,10 +31,9 @@ public class StringUtil {
             return false;
         }
     }
-
     /**
-     * Toolkit method for removing all characters except for lower case letters. Useful for palindrome.
-     * @param s String to filter for Lower Case
+     * Toolkit method FOR removing all characters except FOR lower case letters. Useful FOR palindrome.
+     * @param s String to filter FOR Lower Case
      * @return filtered String
      */
     private static String onlyLowerCase(String s){
