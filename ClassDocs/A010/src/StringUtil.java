@@ -51,25 +51,43 @@ public class StringUtil {
      * @return Shorthand version of String
      */
     public static String shorthand(String s){
-        if(s.toLowerCase().indexOf("and") != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf("and")) + "&" + s.substring(s.toLowerCase().indexOf("and") +3, s.length()));
-        } else if(s.toLowerCase().indexOf("to") != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf("to")) + "2" + s.substring(s.toLowerCase().indexOf("to") +2, s.length()));
-        } else if(s.toLowerCase().indexOf("you") != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf("you")) + "U" + s.substring(s.toLowerCase().indexOf("you") +3, s.length()));
-        } else if(s.toLowerCase().indexOf("f" + "o" + "r") != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf("f" + "o" + "r")) + "4" + s.substring(s.toLowerCase().indexOf("f" + "o" + "r") +3, s.length()));
-        } else if(s.toLowerCase().indexOf('a') != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf('a')) + s.substring(s.toLowerCase().indexOf('a') +1, s.length()));
-        } else if(s.toLowerCase().indexOf('e') != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf('e')) + s.substring(s.toLowerCase().indexOf('e') +1, s.length()));
-        } else if(s.toLowerCase().indexOf('i') != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf('i')) + s.substring(s.toLowerCase().indexOf('i') +1, s.length()));
-        } else if(s.toLowerCase().indexOf('o') != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf('o')) + s.substring(s.toLowerCase().indexOf('o') +1, s.length()));
-        } else if(s.toLowerCase().indexOf('u') != -1){
-            return shorthand(s.substring(0, s.toLowerCase().indexOf('u')) + s.substring(s.toLowerCase().indexOf('u') +1, s.length()));
-        } else{
+        s = repl(s, "and", "&");
+        s = repl(s, "to", "2");
+        s = repl(s, "you", "U");
+        s = repl(s, "f"+ "o"+ "r", "4");
+        s = delete(s, "a");
+        s = delete(s, "e");
+        s = delete(s, "i");
+        s = delete(s, "o");
+        s = delete(s, "u");
+        return s;
+    }
+    /**
+     * Toolkit method FOR deleting substrings from a base String.
+     * @param s base String
+     * @param c substring to delete
+     * @return filtered String
+     */
+    private static String delete(String s, String c){
+        if(s.toLowerCase().indexOf(c) != -1){
+            return delete(s.substring(0, s.toLowerCase().indexOf(c)) + s.substring(s.toLowerCase().indexOf(c) + 1, s.length()), c);
+        }
+        else {
+            return s;
+        }
+    }
+    /**
+     * Toolkit FOR REPLACING a String with another String in a base String.
+     * @param s base String
+     * @param c substring to REPLACE
+     * @param f substring to insert in place of c
+     * @return modified String
+     */
+    private static String repl(String s, String c, String f){
+        if(s.toLowerCase().indexOf(c) != -1){
+            return repl(s.substring(0, s.toLowerCase().indexOf(c)) + f + s.substring(s.toLowerCase().indexOf(c) + c.length(), s.length()), c, f);
+        }
+        else {
             return s;
         }
     }
