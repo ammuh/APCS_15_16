@@ -9,4 +9,20 @@ public class Teacher extends Person{
         subject = subj;
         salary = sal;
     }
+    public String getSubject(){
+        return this.subject;
+    }
+    public double getSalary(){
+        return this.salary;
+    }
+    public void setSubject(String subj){
+        subject = subj;
+    }
+    public void setSalary(double sal){
+        salary = sal;
+    }
+
+    public String toString(){
+        return super.toString() + ", subject: " + getSubject() + ", salary: " + getSalary();
+    }
 }
