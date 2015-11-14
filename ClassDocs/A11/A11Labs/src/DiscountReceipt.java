@@ -33,7 +33,7 @@ public class DiscountReceipt extends GroceryReceipt {
         return discountAmount/total;
     }
     public String toString(){
-        return getReceipt() + "\nSub-Total: $" + valueToString(super.getTotal()) + "\nDiscount: $" + valueToString(getDiscountAmount()) + "\nNumber of discounted items: " + getDiscountCount() + "\nDiscount percent: " + valueToString(getDiscountPercent())+ "\nTotal: $" + valueToString(getTotal());
+        return getReceipt() + "\nSub-Total: $" + valueToString(super.getTotal()) + "\nDiscount: $" + valueToString(getDiscountAmount()) + "\nNumber of discounted items: " + getDiscountCount() + "\nDiscount percent: " + valueToString(getDiscountPercent())+ "%\nTotal: $" + valueToString(getTotal());
     }
 /*
 ? void add(Item) – This method overrides the method of the GroceryReceipt class. It updates

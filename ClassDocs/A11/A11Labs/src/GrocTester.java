@@ -7,7 +7,7 @@ public class GrocTester {
         Item i2 = new Item("Jb Album", 10, .2);
         Item i3 = new Item("Buk", 7.42, .2);
         Employee ammu = new Employee("Ammar Husain");
-        GroceryReceipt g = new GroceryReceipt(ammu);
+        DiscountReceipt g = new DiscountReceipt(ammu, true);
         g.add(i1);
         g.add(i2);
         g.add(i3);
