@@ -25,7 +25,10 @@ public class Item {
     }
 
     public String valueToString(double d){
-        String s = "" + Math.round(d*100)/100.00;
+        String s = "" + Math.round(d*100)/100.0;
+        if(s.length() - s.indexOf(".") <3){
+            s += "0";
+        }
         return s;
     }
     public String toString(){

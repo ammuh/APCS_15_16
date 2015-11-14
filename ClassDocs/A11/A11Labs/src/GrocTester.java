@@ -3,7 +3,7 @@
  */
 public class GrocTester {
     public static void main(String args[]){
-        Item i = new Item("Condoms", 5, 2);
+        Item i = new Item("Condoms", .5, .2);
         System.out.println(i);
     }
 }
