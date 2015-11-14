@@ -12,7 +12,7 @@ public class CollegeStudent extends Student {
     public String getMajor(){
         return this.major;
     }
-    public double getYear(){
+    public int getYear(){
         return this.year;
     }
     public void setMajor(String maj){
