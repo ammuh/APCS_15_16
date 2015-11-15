@@ -5,8 +5,7 @@ Hello viewer! This is my APCS repository, where I do all my labs and make tool k
 ### File Structure ###
 
 * ClassDocs: All the labs, most important directory.
-* Webscraping: My experiment with Webscraping. Here I tried to extract the java textbook from different web pages on the website. If you are here for APCS help, ignore this folder.
-* Workspaces/Fraction: Folders there since I started the repo, ignore, a lot of junk in them. I will take it out at some point.
+* Extra: What I do when Im bored in class, you won't need any of this.
 
 ### Ground Rules ###
 
