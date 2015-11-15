@@ -1,3 +1,0 @@
-INDEX VERSION 1.127+C:\Users\Ammar Husain\Work\School Work\Comp Sci AP\Workspaces\.metadata\.plugins\org.eclipse.jdt.core
-2141685853.index
-3870218727.index
