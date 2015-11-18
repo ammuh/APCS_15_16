@@ -34,18 +34,5 @@ public class Item {
     public String toString(){
         return name + " $" + valueToString(getPrice()) + " (-$" + valueToString(getDiscount()) + ")";
     }
-    /*
-    ? name – String is the name of the item
-? price – double is the price of the item in dollars
-? discount – double is the discount on the item in dollars
-? Constructor that initializes an Item object with the given name, price and discount
-? Getter methods to return the name, price, and discount
-? String valueToString (double) that converts the passed in value to a number shortened to
-two decimal places and returns it as a String
-? String toString() returns the item name and its price and discount as shown in the example
-Ice Breaker $1.05 (-$0.50)
-One item would be printed per line, so don’t forget to include a line break. In this example the item
-name is Ice Breaker, its price is $1.05 and there is a discount of $0.50 on it.
-     */
 }
 
