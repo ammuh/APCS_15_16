@@ -9,11 +9,6 @@ public class AndChecker implements Checker{
         checker2 = c2;
     }
     public boolean accept(String s){
-        if(checker1.accept(s) && checker1.accept(s)){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return checker1.accept(s) && checker2.accept(s);
     }
 }
