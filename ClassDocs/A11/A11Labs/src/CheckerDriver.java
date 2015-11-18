@@ -20,13 +20,14 @@ public class CheckerDriver {
 		System.out.println("beets are great:" + bothChecker.accept("beets are great"));
 		System.out.println("artichokes, beets, and carrots:" + bothChecker.accept("artichokes, beets, and carrots"));
 		
+		
 		Checker aChecker = new SubstringChecker("artichokes");
 		Checker kChecker = new SubstringChecker("kale");
-		Checker chChecker = new SubstringChecker("chocolate");
+		Checker yummyChecker = new NotChecker(kChecker);
 
-		System.out.println("chocolate truffles:" + bothChecker.accept("I love beets and carrots"));
-		System.out.println("kale is great:" + bothChecker.accept("beets are great"));
-		System.out.println("Yuck: artichokes & kale:" + bothChecker.accept("artichokes, beets, and carrots"));
+		System.out.println("chocolate truffles:" + yummyChecker.accept("chocolate truffles"));
+		System.out.println("kale is great:" + yummyChecker.accept("kale is great"));
+		System.out.println("Yuck: artichokes & kale:" + yummyChecker.accept("Yuck: artichokes & kale"));
 	}
 
 }
