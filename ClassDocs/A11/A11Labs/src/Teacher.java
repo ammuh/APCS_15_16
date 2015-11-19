@@ -47,9 +47,9 @@ public class Teacher extends Person{
      * Gets a teacher's salary.
      * @param sal salary
      */
-    public void setSalary(double sal){
+    public void setSalary(double sal) {
         salary = sal;
-    
+    }
     public String toString(){
         return super.toString() + ", subject: " + getSubject() + ", salary: " + getSalary();
     }
