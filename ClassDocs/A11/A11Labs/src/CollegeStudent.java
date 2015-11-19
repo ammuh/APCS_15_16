@@ -53,7 +53,7 @@ public class CollegeStudent extends Student {
     public void setYear(int y){
         this.year = y;
     }
-    
+
     public String toString(){
         return super.toString() + ", year: " + this.getYear() + ", major: " + this.getMajor();
     }
