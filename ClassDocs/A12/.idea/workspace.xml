@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MultiplicationTable.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MultiplicationTable.java">
+      <file leaf-file-name="Pyramid.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Pyramid.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.49918434">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -54,6 +54,7 @@
         <option value="$PROJECT_DIR$/src/GCFAndLCM.java" />
         <option value="$PROJECT_DIR$/src/FunLoops.java" />
         <option value="$PROJECT_DIR$/src/MultiplicationTable.java" />
+        <option value="$PROJECT_DIR$/src/Pyramid.java" />
       </list>
     </option>
   </component>
@@ -144,10 +145,25 @@
       <recent name="C:\Users\Ammar Husain\Work\School Work\Comp Sci AP\ClassDocs\A12\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MultiplicationTable">
+  <component name="RunManager" selected="Application.Pyramid">
     <configuration default="false" name="MultiplicationTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="MultiplicationTable" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="A12" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Pyramid" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="Pyramid" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -412,12 +428,14 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.MultiplicationTable" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Pyramid" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.MultiplicationTable" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.Pyramid" />
+        <item index="1" class="java.lang.String" itemvalue="Application.MultiplicationTable" />
       </list>
     </recent_temporary>
   </component>
@@ -429,12 +447,12 @@
       <option name="number" value="Default" />
       <updated>1448504308855</updated>
       <workItem from="1448504317478" duration="4561000" />
-      <workItem from="1448519340741" duration="6904000" />
+      <workItem from="1448519340741" duration="8800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11465000" />
+    <option name="totallyTimeSpent" value="13361000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="991" y="0" width="929" height="1080" extended-state="0" />
@@ -545,8 +563,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MultiplicationTable.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6933116">
+          <caret line="25" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pyramid.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49918434">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding />
         </state>
       </provider>
