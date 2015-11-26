@@ -26,8 +26,8 @@
       <file leaf-file-name="MultiplicationTable.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MultiplicationTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33278957">
-              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.49918434">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -429,12 +429,12 @@
       <option name="number" value="Default" />
       <updated>1448504308855</updated>
       <workItem from="1448504317478" duration="4561000" />
-      <workItem from="1448519340741" duration="6845000" />
+      <workItem from="1448519340741" duration="6904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11406000" />
+    <option name="totallyTimeSpent" value="11465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="991" y="0" width="929" height="1080" extended-state="0" />
@@ -545,8 +545,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MultiplicationTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33278957">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.49918434">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding />
         </state>
       </provider>
