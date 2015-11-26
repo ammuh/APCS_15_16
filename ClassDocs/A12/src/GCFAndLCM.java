@@ -1,7 +1,7 @@
 /**
  * 
- * @author Your Name
- * Period #
+ * @author Ammar Husain
+ * Period 4
  *
  */
 public class GCFAndLCM {

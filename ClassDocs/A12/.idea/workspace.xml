@@ -36,11 +36,11 @@
       <file leaf-file-name="GCFAndLCM.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GCFAndLCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9780034">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6040609">
+              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding>
-                <element signature="e#651#652#0" expanded="true" />
-                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,8 +66,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GCFAndLCM.java" />
         <option value="$PROJECT_DIR$/src/GCFAndLCMDriver.java" />
+        <option value="$PROJECT_DIR$/src/GCFAndLCM.java" />
       </list>
     </option>
   </component>
@@ -79,7 +79,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
+    <option name="x" value="991" />
     <option name="width" value="929" />
     <option name="height" value="1080" />
   </component>
@@ -434,15 +434,15 @@
       <created>1448504308855</created>
       <option name="number" value="Default" />
       <updated>1448504308855</updated>
-      <workItem from="1448504317478" duration="1119000" />
+      <workItem from="1448504317478" duration="1332000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1119000" />
+    <option name="totallyTimeSpent" value="1332000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="0" width="929" height="1080" extended-state="0" />
+    <frame x="991" y="0" width="929" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -500,11 +500,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GCFAndLCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9780034">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6040609">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding>
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
           </folding>
         </state>
       </provider>
