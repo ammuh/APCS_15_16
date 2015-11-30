@@ -32,16 +32,16 @@ public class LoanTable {
     public void printTable()
     {
         //Print table heading
-        System.out.print("Mortgage problem");
-        System.out.print("Principal = " + );
-        System.out.print("Time = ");
-        System.out.print("Low rate = ");
-        System.out.print("High rate = ");
-        System.out.println("Annual Interest Rate    MonthlyRate\n");
+        System.out.println("Annual Interest Rate    Monthly Payment\n");
+        double h = high;
+        double l = low;
+        while(h >= l){
+            System.out.printf("%15.2f", l);
+            System.out.printf("%17.2f", (this.principal*(l/1200)*Math.pow(1+(l/1200), years*12))/(Math.pow(1+l/1200, years*12)-1));
+            System.out.println();
+            l += .25;
+        }
         //Your code goes here
 
-
-
     }
-
 }
