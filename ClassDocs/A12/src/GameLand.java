@@ -1,8 +1,8 @@
 import java.util.*;
 /**
  *
- * @author Your name
- * Period #
+ * @author Ammar Husain
+ * Period 4
  */
 
 public class GameLand {
