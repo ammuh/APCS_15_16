@@ -1,6 +1,4 @@
 import java.util.Scanner;
-
-
 public class GameLandDriver {
     public static void main(String[] args)
     {
