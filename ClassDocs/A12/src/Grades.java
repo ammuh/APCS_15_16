@@ -9,17 +9,12 @@ import java.util.*;
 public class Grades {
 	//Declare instance variables here
 	public String grades;
-
-
 	/**
 	 * Method to get the grades and calculate the GPA
 	 * This method also counts the number of classes taken
 	 * and the number of Fs
 	 */
-	public void getGradesAndCalculateGPA()
-	{
-		//Your code goes here
-
+	public void getGradesAndCalculateGPA(){
 		Scanner s = new Scanner(System.in);
 		System.out.print("Enter your grades: ");
 		grades =  s.nextLine();
@@ -27,9 +22,7 @@ public class Grades {
 	/**
 	 * Method to print the appropriate message
 	 */
-	public void printMessage()
-	{
-		//Your code goes here
+	public void printMessage(){
 		int a = 0;
 		int b = 0;
 		int c = 0;
