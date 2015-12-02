@@ -28,21 +28,30 @@ public class StringUtil {
     }
 	public static String phraseToPigLatin(String text){
         int spos = 0;
-        int fpos = 0;
-        String ltext = text.toLowerCase();
-        while(fpos < text.length()){
-            if((int)text.substring(fpos, fpos+1).toLowerCase().charAt(0) < 97 || (int)text.substring(fpos, fpos+1).toLowerCase().charAt(0) > 122 ){
-
-                int diff = wordToPigLatin(text.substring(spos, fpos)).length()- text.substring(spos, fpos).length();
-                text = text.substring(0, spos) + wordToPigLatin(text.substring(spos, fpos)) + text.substring(fpos+ diff+1);
-                spos = fpos + diff;
-                fpos += diff;
+        int cursor = 0;
+        String newText = "";
+        boolean wordStart = true;
+        while(cursor < text.length()){
+            while(wordStart){
+                if((int)text.toLowerCase().charAt(cursor) < 97 || (int)text.toLowerCase().charAt(cursor) > 122 ){
+                    wordStart = false;
+                }
+                else{
+                    cursor++;
+                }
             }
-            else {
-                fpos++;
+            String selection = text.substring(spos, cursor);
+            if(selection.length() == 1 && (selection.toLowerCase().charAt(0) < 97 || selection.toLowerCase().charAt(0) > 122)){
+                newText += selection;
+                spos = cursor;
             }
+            else{
+                newText += wordToPigLatin(selection);
+                spos = cursor;
+            }
+            
         }
-        return text;
+        return newText;
 	}
     private static String wordToPigLatin(String text){
         String ltext = text.toLowerCase();
