@@ -23,24 +23,51 @@ public class StringUtil {
 	*
 	* @return piglatin version of text as a String 
 	*/
+    public static void main(String args[]){
+        System.out.println(phraseToPigLatin("Hasta la vista, baby"));
+    }
 	public static String phraseToPigLatin(String text){
-		String ltext = text.toLowerCase();
-		if(ltext.indexOf('a') < 0 && ltext.indexOf('e') < 0 && ltext.indexOf('i') < 0 && ltext.indexOf('o') < 0 && ltext.indexOf('u') < 0){
-			return text;
-		}else if(ltext.charAt(0) == 'a' || ltext.charAt(0) == 'e' || ltext.charAt(0) == 'i' || ltext.charAt(0) == 'o' || ltext.charAt(0) == 'u'){
-			return text + "yay";
-		}else if(ltext.indexOf('a') >= 0 || ltext.indexOf('e') >= 0 || ltext.indexOf('i') >= 0 || ltext.indexOf('o') >= 0 || ltext.indexOf('u') >= 0){
-			int pos = -1;
-			int i = 0;
-			while(pos == -1){
-				if(ltext.charAt(i) == 'a' || ltext.charAt(i) == 'e' || ltext.charAt(i) == 'i' || ltext.charAt(i) == 'o' || ltext.charAt(i) == 'u'){
-					pos = i;
-				}
-				i++;
-			}
-			return text.substring(pos)+text.substring(0, pos);
-		}
-        return "";
+        int spos = 0;
+        int fpos = 0;
+        String ltext = text.toLowerCase();
+        while(fpos < text.length()){
+            if((int)text.substring(fpos, fpos+1).toLowerCase().charAt(0) < 97 || (int)text.substring(fpos, fpos+1).toLowerCase().charAt(0) > 122 ){
+
+                int diff = wordToPigLatin(text.substring(spos, fpos)).length()- text.substring(spos, fpos).length();
+                text = text.substring(0, spos) + wordToPigLatin(text.substring(spos, fpos)) + text.substring(fpos+ diff+1);
+                spos = fpos + diff;
+                fpos += diff;
+            }
+            else {
+                fpos++;
+            }
+        }
+        return text;
 	}
+    private static String wordToPigLatin(String text){
+        String ltext = text.toLowerCase();
+        if((ltext.length() == 1 && (ltext.charAt(0) < 97 || ltext.charAt(0) > 122)) || text.equals("")){
+            return text;
+        }
+        if(ltext.indexOf('a') < 0 && ltext.indexOf('e') < 0 && ltext.indexOf('i') < 0 && ltext.indexOf('o') < 0 && ltext.indexOf('u') < 0){
+            return text + "ay";
+        }else if(ltext.charAt(0) == 'a' || ltext.charAt(0) == 'e' || ltext.charAt(0) == 'i' || ltext.charAt(0) == 'o' || ltext.charAt(0) == 'u'){
+            return text + "yay";
+        }else if(ltext.indexOf('a') >= 0 || ltext.indexOf('e') >= 0 || ltext.indexOf('i') >= 0 || ltext.indexOf('o') >= 0 || ltext.indexOf('u') >= 0){
+            int pos = -1;
+            int i = 0;
+            while(pos == -1){
+                if(ltext.charAt(i) == 'a' || ltext.charAt(i) == 'e' || ltext.charAt(i) == 'i' || ltext.charAt(i) == 'o' || ltext.charAt(i) == 'u'){
+                    pos = i;
+                }
+                i++;
+            }
+            if(text.charAt(0) < 97){
+                return text.substring(pos, pos+1).toUpperCase()+ text.substring(pos+1)+text.substring(0, pos).toLowerCase() + "ay";
+            }
+            return text.substring(pos)+text.substring(0, pos) + "ay";
+        }
+        return "";
+    }
 	  
 }
