@@ -23,36 +23,65 @@ public class StringUtil {
 	*
 	* @return piglatin version of text as a String 
 	*/
-    public static void main(String args[]){
-        System.out.println(phraseToPigLatin("Hasta la vista, baby"));
-    }
 	public static String phraseToPigLatin(String text){
         int spos = 0;
         int cursor = 0;
         String newText = "";
+        String word = "";
+        String nonWord = "";
+        for(int i){
+
+        }
         boolean wordStart = true;
-        while(cursor < text.length()){
+        while(cursor < text.length()-1){
             while(wordStart){
-                if((int)text.toLowerCase().charAt(cursor) < 97 || (int)text.toLowerCase().charAt(cursor) > 122 ){
+                if(cursor == text.length()-1){
                     wordStart = false;
+                }else if((int)text.toLowerCase().charAt(cursor) < 97 || (int)text.toLowerCase().charAt(cursor) > 122 ){
+                    wordStart = false;
+                    cursor++;
                 }
                 else{
                     cursor++;
                 }
             }
-            String selection = text.substring(spos, cursor);
+            wordStart = true;
+            String selection;
+            if(cursor == text.length()-1){
+                selection = text.substring(spos);
+            }
+            else{
+                selection = text.substring(spos, cursor);
+            }
             if(selection.length() == 1 && (selection.toLowerCase().charAt(0) < 97 || selection.toLowerCase().charAt(0) > 122)){
                 newText += selection;
                 spos = cursor;
             }
             else{
-                newText += wordToPigLatin(selection);
+                if(cursor == text.length()-1){
+                    newText += wordToPigLatin(selection);
+                }
+                else{
+                    newText += wordToPigLatin(selection.substring(0, selection.length()-1));
+                }
+
+                if(cursor != text.length()-1){
+                    cursor--;
+                }
                 spos = cursor;
             }
             
         }
         return newText;
 	}
+    private static boolean isALetter(char c){
+        String s = "" + c;
+        c = s.toLowerCase().charAt(0);
+        if((int)c < 97 || (int)c > 122 ){
+            return true;
+        }
+        return false;
+    }
     private static String wordToPigLatin(String text){
         String ltext = text.toLowerCase();
         if((ltext.length() == 1 && (ltext.charAt(0) < 97 || ltext.charAt(0) > 122)) || text.equals("")){
