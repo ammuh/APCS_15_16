@@ -1,7 +1,7 @@
 /**
  * 
- * @author Your name
- * Period #
+ * @author Ammar Husain
+ * Period 4
  *
  */
 public class StringUtil {
@@ -23,10 +23,7 @@ public class StringUtil {
 	*
 	* @return piglatin version of text as a String 
 	*/
-	public static void main(String args[]){
-	    System.out.println(phraseToPigLatin("Hasta")); 
-	}
-	
+
 	public static String phraseToPigLatin(String text){
         String newText = "";
         String word = "";
@@ -34,10 +31,8 @@ public class StringUtil {
         for(int i = 0; i < text.length(); i++){
             if(isALetter(text.charAt(i))){
                 word += text.charAt(i);
-                System.out.println("Y");
             }else{
                 nonWord += text.charAt(i);
-                System.out.println("N");
             }
             if(!nonWord.equals("") && word.equals("")){
                 newText += nonWord;
@@ -46,7 +41,7 @@ public class StringUtil {
                 newText += wordToPigLatin(word);
                 word = "";
             }else if(nonWord.equals("")){
-                break;
+
             }else{
                 newText += wordToPigLatin(word) + nonWord;
                 nonWord = "";
