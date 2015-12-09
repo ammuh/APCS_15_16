@@ -45,9 +45,8 @@ public class GameLand {
         while(p1 < 100 && p2 < 100){
             roll();
             int di = (d1 + d2);
-            switch(turn){
-                case 1:
-                    System.out.print("Player A rolled a " + di + " >>> ");
+            if(turn == 1){
+                System.out.print("Player A rolled a " + di + " >>> ");
                     if(di == 7){
                         p1 -= 7;
                         if(p1< 0){p1 = 0;}
@@ -69,9 +68,9 @@ public class GameLand {
                         }
                     }
                     turn = 2;
-                    break;
-                case 2:
-                    System.out.print("Player B rolled a " + di + " >>> ");
+            }
+            else{
+                System.out.print("Player B rolled a " + di + " >>> ");
                     if(di == 7){
                         p2 -= 7;
                         if(p2< 0){p2 = 0;}
@@ -92,7 +91,6 @@ public class GameLand {
                         }
                     }
                     turn = 1;
-                    break;
             }
         }
         System.out.println("Player A is now at " + p1 + "\nPlayer B is now at " + p2);

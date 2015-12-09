@@ -23,54 +23,35 @@ public class StringUtil {
 	*
 	* @return piglatin version of text as a String 
 	*/
+	public static void main(String args[]){
+	    System.out.println(phraseToPigLatin("Hasta")); 
+	}
+	
 	public static String phraseToPigLatin(String text){
-        int spos = 0;
-        int cursor = 0;
         String newText = "";
         String word = "";
         String nonWord = "";
-        for(int i){
-
-        }
-        boolean wordStart = true;
-        while(cursor < text.length()-1){
-            while(wordStart){
-                if(cursor == text.length()-1){
-                    wordStart = false;
-                }else if((int)text.toLowerCase().charAt(cursor) < 97 || (int)text.toLowerCase().charAt(cursor) > 122 ){
-                    wordStart = false;
-                    cursor++;
-                }
-                else{
-                    cursor++;
-                }
+        for(int i = 0; i < text.length(); i++){
+            if(isALetter(text.charAt(i))){
+                word += text.charAt(i);
+                System.out.println("Y");
+            }else{
+                nonWord += text.charAt(i);
+                System.out.println("N");
             }
-            wordStart = true;
-            String selection;
-            if(cursor == text.length()-1){
-                selection = text.substring(spos);
+            if(!nonWord.equals("") && word.equals("")){
+                newText += nonWord;
+                nonWord = "";
+            }else if(nonWord.equals("") && !word.equals("") && i == text.length()-1){
+                newText += wordToPigLatin(word);
+                word = "";
+            }else if(nonWord.equals("")){
+                break;
+            }else{
+                newText += wordToPigLatin(word) + nonWord;
+                nonWord = "";
+                word = "";
             }
-            else{
-                selection = text.substring(spos, cursor);
-            }
-            if(selection.length() == 1 && (selection.toLowerCase().charAt(0) < 97 || selection.toLowerCase().charAt(0) > 122)){
-                newText += selection;
-                spos = cursor;
-            }
-            else{
-                if(cursor == text.length()-1){
-                    newText += wordToPigLatin(selection);
-                }
-                else{
-                    newText += wordToPigLatin(selection.substring(0, selection.length()-1));
-                }
-
-                if(cursor != text.length()-1){
-                    cursor--;
-                }
-                spos = cursor;
-            }
-            
         }
         return newText;
 	}
@@ -78,9 +59,11 @@ public class StringUtil {
         String s = "" + c;
         c = s.toLowerCase().charAt(0);
         if((int)c < 97 || (int)c > 122 ){
+            return false;
+        }else{
+            
             return true;
         }
-        return false;
     }
     private static String wordToPigLatin(String text){
         String ltext = text.toLowerCase();
