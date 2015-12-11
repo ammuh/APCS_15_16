@@ -56,7 +56,6 @@ public class StringUtil {
         if((int)c < 97 || (int)c > 122 ){
             return false;
         }else{
-            
             return true;
         }
     }

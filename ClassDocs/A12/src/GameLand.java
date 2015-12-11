@@ -55,7 +55,7 @@ public class GameLand {
                         System.out.println("** Player A is now at " + p1);
                     }else if(di + p1 >= 100){
                         p1 += di;
-                        System.out.println("Player A WINS!!!");
+                        System.out.println("Player A WINS!!");
                     }else{
                         p1 += di;
                         if(p1 == p2){
