@@ -5,7 +5,7 @@ public class CheckingAccount{
     public CheckingAccount(){ 
         myBalance = 0.0;
         myAccountNumber = 0; 
-    } 
+    }
     public CheckingAccount(double initialBalance, int acctNum){ 
         if(initialBalance < 0){throw new IllegalArgumentException("Negative balance in account " + acctNum);}
         myBalance = initialBalance; 
