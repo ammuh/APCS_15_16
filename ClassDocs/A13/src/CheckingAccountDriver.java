@@ -1,5 +1,9 @@
-// CLI Run config, run this command in this directory: javac CheckingAccount.java && javac CheckDriver.java && java CheckDriver
-public class CheckDriver{
+/**
+ * Class for testing checking account.
+ * @author Ammar Husain
+ * Period 4
+ */
+public class CheckingAccountDriver{
     public static void main(String args[]){
         try{
             CheckingAccount x = new CheckingAccount(-10, 8);

@@ -1,4 +1,9 @@
-public class CheckingAccount{ 
+/**
+ * Class for maintaining a bank account.
+ * @author Ammar Husain
+ * Period 4
+ */
+public class CheckingAccount{
     private double myBalance;
     private int myAccountNumber; 
     
