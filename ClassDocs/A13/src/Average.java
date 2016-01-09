@@ -1,5 +1,8 @@
 /**
- * Created by Ammar Husain on 1/8/2016.
+ * 
+ * @author Ammar Husain
+ * @period 4
+ *
  */
 import java.util.*;
 import java.io.*;
