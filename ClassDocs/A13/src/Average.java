@@ -1,5 +1,8 @@
 /**
- * Created by Ammar Husain on 1/8/2016.
+ *
+ * @author Ammar Husain
+ * @period 4
+ *
  */
 import java.util.*;
 import java.io.*;
@@ -23,8 +26,8 @@ public class Average {
                 throw new IllegalArgumentException(this.name + " does not have numeric data");
             }
             while(s.hasNext()){
-                  total += s.nextInt();
-                  num++;
+                total += s.nextInt();
+                num++;
             }
             return (double)total/num;
         }catch(IOException i){
