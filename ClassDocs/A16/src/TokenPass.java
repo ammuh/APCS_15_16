@@ -62,27 +62,19 @@ public class TokenPass {
 	    int tokens = board[currentPlayer];
 	    board[currentPlayer] =0;
 	    int token1 = (int)tokens/board.length;
-	    int token2 = tokens % board.length;
-	    int i =0;
-	    while(i < board.length){
-	        board[i] = board[i] + token1;
-	        inc();
-	    }
-	    int i = 0;
-	    while(i <){
-	        
-	    }
-	        
-	    while(tokens > 0){
-	        board[currentPlayer] = board[currentPlayer] + 1;
-            board[before] = board[before] - 1;
-            tokens--;
-            before = currentPlayer;
-	        inc();
-	    }
-	    currentPlayer = currentPlayer
-	    currentPlayer = pos;
-        printCurrentBoard();
+	    int tokenLeft = tokens % board.length;
+
+		for(int i = 0; i < board.length; i++){
+			board[i] = board[i] + token1;
+		}
+		inc();
+		while(tokenLeft > 0){
+			board[currentPlayer] = board[currentPlayer] + 1;
+			tokenLeft--;
+			inc();
+		}
+		System.out.print("After Distributing Tokens: ");
+		printCurrentBoard();
 	}
     
     private void inc(){

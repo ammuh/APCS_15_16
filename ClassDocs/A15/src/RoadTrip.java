@@ -63,7 +63,7 @@ public class RoadTrip
     {
         double length = 0;
         for (int i = 0; i < glist.size()-1; i++) {
-            length += glist.get(i+1).distanceFrom(glist.get(i));
+            System.out.println( glist.get(i).toString() + glist.get(i+1).toString() + glist.get(i + 1).distanceFrom(glist.get(i)));
         }
         return length;
     }
