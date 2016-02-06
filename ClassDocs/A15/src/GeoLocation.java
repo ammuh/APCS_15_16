@@ -20,7 +20,6 @@ public class GeoLocation
     private double latitude;
     private double longitude;
     private String name;
-
     /**
      * Constructs a geo location object with given latitude and longitude
      * @param theName - name of this geo location
@@ -79,12 +78,11 @@ public class GeoLocation
     
     public double distanceFrom(GeoLocation other) 
     {
-        double theta = ((Math.sin(getLatitude()) * Math.sin(other.getLatitude())) 
-        		+ (Math.cos(getLatitude()) * Math.cos(getLatitude()) * 
-        				Math.cos(getLongitude() - other.getLongitude())));
+        double theta = ((Math.sin(Math.toRadians(getLatitude())) * Math.sin(Math.toRadians(other.getLatitude()))) 
+        		+ (Math.cos(Math.toRadians(getLatitude())) * Math.cos(Math.toRadians(getLatitude())) * 
+        				Math.cos(Math.toRadians(getLongitude()) - Math.toRadians(other.getLongitude()))));
         double arcLength = Math.acos(theta);
         double distance = arcLength * RADIUS;
         return distance;
-        
     }
 }
