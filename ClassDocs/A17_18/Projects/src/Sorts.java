@@ -50,8 +50,16 @@ public class Sorts {
     public void insertionSort(ArrayList < Comparable > list) {
         
         int pos = 1;
-        while(){
-            
+        while(pos < list.size()){
+            if(list.get(pos).compareTo(list.get(pos-1)) < 0){
+                int temp = pos;
+                while(pos > 0 && list.get(pos).compareTo(list.get(pos-1)) < 0){
+                    swap(list, pos, pos-1);
+                    pos--;
+                }
+                pos= temp;
+            }
+            pos++;
         }
         
         //Add your code here

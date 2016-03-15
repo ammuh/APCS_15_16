@@ -1,0 +1,5 @@
+~/workspace/SchoolWork/apcs_2015_2016/ClassDocs/A17_18/Projects/src
+
+^^Path for all A17_18 project files
+
+javac Sort.java && javac SortStep.java && javac SortStepDriver.java && java SortStepDriver
