@@ -24,6 +24,14 @@ public class Sorts {
      * @param  list  reference to an array of integers to be sorted
      */
     public void bubbleSort(ArrayList < Comparable > list) {
+        int end = list.size();
+        while(end >1){
+            for(int pos =1; pos < end; pos++){
+                if(list.get(pos).compareTo(list.get(pos-1)) > 0){
+
+                }
+            }
+        }
         //Add your code here
         System.out.println();
         System.out.println("Bubble Sort");
