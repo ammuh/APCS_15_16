@@ -24,6 +24,7 @@ public class Sorts {
      * @param  list  reference to an array of integers to be sorted
      */
     public void bubbleSort(ArrayList < Comparable > list) {
+        /*
         int end = list.size();
         while(end >1){
             for(int pos =1; pos < end; pos++){
@@ -31,7 +32,7 @@ public class Sorts {
 
                 }
             }
-        }
+        }*/
         //Add your code here
         System.out.println();
         System.out.println("Bubble Sort");
@@ -44,7 +45,19 @@ public class Sorts {
      * @param  list  reference to an array of integers to be sorted
      */
     public void selectionSort(ArrayList < Comparable > list) {
-        //Add your code here
+        int end = -1;
+        while(end < list.size()-1){
+            Comparable smallest = list.get(end +1);
+            int pos = end+1;
+            for(int elem = end +1; elem < list.size(); elem++){
+                if(list.get(elem).compareTo(smallest) < 0){
+                    smallest = list.get(elem);
+                    pos = elem;
+                }
+            }
+            end++;
+            swap(list, pos, end);
+        }
         System.out.println();
         System.out.println("Selection Sort");
         System.out.println();

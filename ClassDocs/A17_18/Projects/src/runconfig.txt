@@ -2,4 +2,4 @@
 
 ^^Path for all A17_18 project files
 
-javac Sort.java && javac SortStep.java && javac SortStepDriver.java && java SortStepDriver
+javac Sorts.java && javac SortStep.java && javac SortStepDriver.java && java SortStepDriver
