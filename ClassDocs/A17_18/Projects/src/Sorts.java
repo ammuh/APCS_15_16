@@ -24,15 +24,16 @@ public class Sorts {
      * @param  list  reference to an array of integers to be sorted
      */
     public void bubbleSort(ArrayList < Comparable > list) {
-        /*
         int end = list.size();
-        while(end >1){
-            for(int pos =1; pos < end; pos++){
-                if(list.get(pos).compareTo(list.get(pos-1)) > 0){
-
+        while(0 < end){
+            for(int i = 1; i < end; i++){
+                setStepCount(getStepCount()+3);
+                if(list.get(i-1).compareTo(list.get(i)) > 0){
+                    swap(list, i, i-1);
                 }
             }
-        }*/
+            end--;
+        }
         //Add your code here
         System.out.println();
         System.out.println("Bubble Sort");
@@ -46,16 +47,22 @@ public class Sorts {
      */
     public void selectionSort(ArrayList < Comparable > list) {
         int end = -1;
-        while(end < list.size()-1){
-            Comparable smallest = list.get(end +1);
-            int pos = end+1;
-            for(int elem = end +1; elem < list.size(); elem++){
-                if(list.get(elem).compareTo(smallest) < 0){
-                    smallest = list.get(elem);
-                    pos = elem;
+        ArrayList newList =  new ArrayList();
+        while(list.size() > 0){
+            Comparable smallest = list.get(0);
+            setStepCount(getStepCount()+1);
+            int pos = 0;
+            int spos=0;
+            for(Comparable elem : list){
+                setStepCount(getStepCount()+2);
+                if(elem.compareTo(smallest) < 0){
+                    smallest = elem;
+                    setStepCount(getStepCount()+1);
+                    spos = pos;
                 }
+                pos++;
             }
-            end++;
+            list.remove();
             swap(list, pos, end);
         }
         System.out.println();
@@ -72,12 +79,15 @@ public class Sorts {
         
         int pos = 1;
         while(pos < list.size()){
+            setStepCount(getStepCount()+3);
             if(list.get(pos).compareTo(list.get(pos-1)) < 0){
                 int temp = pos;
+                setStepCount(getStepCount()+3);
                 while(pos > 0 && list.get(pos).compareTo(list.get(pos-1)) < 0){
                     swap(list, pos, pos-1);
                     pos--;
                 }
+                setStepCount(getStepCount()-3);
                 pos= temp;
             }
             pos++;
@@ -159,5 +169,6 @@ public class Sorts {
         Comparable temp = list.get(a);
         list.set(a, list.get(b));
         list.set(b, temp);
+        setStepCount(getStepCount()+4);
     }
 }
